@@ -1,0 +1,63 @@
+
+
+        <div class="form-container">
+            <h2>Gestion des Offres d'Emploi</h2>
+            
+            <!-- Formulaire de gestion des offres -->
+            <form id="offreForm">
+                <!-- Section: Ajouter une nouvelle offre -->
+                <div class="section">
+                    <label for="titre">Titre de l'offre:</label>
+                    <input type="text" id="titre" name="titre" placeholder="Titre de l'offre" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="5" placeholder="Description détaillée de l'offre" required></textarea>
+
+                    <label for="type">Type de contrat:</label>
+                    <select id="type" name="type" required>
+                        <option value="CDI">CDI</option>
+                        <option value="CDD">CDD</option>
+                        <option value="Stage">Stage</option>
+                        <option value="Alternance">Alternance</option>
+                    </select>
+
+                    <label for="entreprise">Entreprise:</label>
+                    <input type="text" id="entreprise" name="entreprise" placeholder="Nom de l'entreprise" required>
+
+                    <label for="lieu">Lieu:</label>
+                    <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'offre" required>
+
+                    <label for="date">Date de publication:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                 <!-- Boutons de gestion -->
+                 <div class="actions">
+                    <button type="submit">Ajouter l'offre</button>
+                    <button type="reset">Réinitialiser</button>
+                </div>
+
+                <!-- Section: Liste des offres -->
+                <div class="section">
+                    <h3>Liste des offres actuelles</h3>
+                    <ul>
+                        <li>
+                            Développeur Frontend - Tech Solutions - CDI - Paris
+                            <div class="actions">
+                                <button type="button" onclick="modifierOffre('1')">Modifier</button>
+                                <button type="button">Supprimer</button>
+                            </div>                        </li>
+                        <li>
+                            Chargé de recrutement - RH Partners - CDD - Lyon
+                            
+                            <div class="actions">
+                                <button type="button" onclick="modifierOffre('2')">Modifier</button>
+                                <button type="button">Supprimer</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+               
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,115 @@
+<!--
+<div class="form-container">
+    <h2>Informations Professionnelles</h2>
+    <form action="submit.php" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="niveau_education">Niveau d'éducation :</label>
+        <select id="niveau_education" name="Niveau d'éducation" required>
+          <option value="">Sélectionnez</option>
+          <option value="primaire">Primaire</option>
+          <option value="secondaire">Secondaire</option>
+          <option value="formations professionnelles">Formations Professionnelles</option>
+          <option value="bac"> Bac</option>
+          <option value="bac + 1">Bac + 1</option>
+          <option value="bac + 2">Bac + 2</option>
+          <option value="bac + 3">Bac + 3</option>
+          <option value="bac + 4">Bac + 4</option>
+          <option value="bac + 5">Bac + 5</option>
+          <option value="doctorat">Doctorat</option>
+          <option value="expert , recherche">Expert , Recherche</option>
+         
+        </select>
+       
+      </div>
+      <div class="form-group">
+        <label for="diplome">Diplôme obtenu :</label>
+        <input type="text" id="diplome" name="diplome" required>
+      </div>
+      <div class="form-group">
+        <label for="etablissement">Établissement :</label>
+        <input type="text" id="etablissement" name="etablissement" required>
+      </div>
+      <div class="form-group">
+        <label for="niveau_experience">Niveau d'expérience :</label>
+        <input type="text" id="niveau_experience" name="niveau_experience" required>
+      </div>
+      <div class="form-group">
+        <label for="statut_actuel">Statut actuel :</label>
+        <input type="text" id="statut_actuel" name="statut_actuel" required>
+      </div>
+      <div class="form-group">
+        <label for="competences">Compétences :</label>
+        <textarea id="competences" name="competences" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="langue">Langue :</label>
+        <input type="text" id="langue" name="langue" required>
+      </div>
+      <div class="form-group">
+        <label for="poste_desire">Poste désiré :</label>
+        <input type="text" id="poste_desire" name="poste_desire" required>
+      </div>
+      <div class="form-group">
+        <label for="lieu_travail">Lieu de travail souhaité :</label>
+        <input type="text" id="lieu_travail" name="lieu_travail" required>
+      </div>
+      <div class="form-group">
+        <label for="cv">CV (fichier) :</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+      </div>
+      <div class="button-group">
+        <a href="infosPer.html" class="btn btn-back">Retour</a>
+        <button type="submit" class="btn">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+
+
+-->
+<!-- src/app/info-pro/info-pro.component.html -->
+<div *ngIf="erreurMessage" class="error">{{ erreurMessage }}</div>
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>Niveau d'éducation</label>
+    <input type="text" [(ngModel)]="infoPro.niveauEducation" name="niveauEducation" required />
+  </div>
+  <div>
+    <label>Diplôme obtenu</label>
+    <input type="text" [(ngModel)]="infoPro.diplomeObtenu" name="diplomeObtenu" required />
+  </div>
+  <div>
+    <label>Établissement</label>
+    <input type="text" [(ngModel)]="infoPro.etablissement" name="etablissement" required />
+  </div>
+  <div>
+    <label>Niveau d'expérience</label>
+    <input type="text" [(ngModel)]="infoPro.niveauExperience" name="niveauExperience" />
+  </div>
+  <div>
+    <label>Statut actuel</label>
+    <input type="text" [(ngModel)]="infoPro.statutActuel" name="statutActuel" />
+  </div>
+  <div>
+    <label>Compétences</label>
+    <textarea [(ngModel)]="infoPro.competences" name="competences"></textarea>
+  </div>
+  <div>
+    <label>Langues</label>
+    <input type="text" [(ngModel)]="infoPro.langues" name="langues" />
+  </div>
+  <div>
+    <label>Poste désiré</label>
+    <input type="text" [(ngModel)]="infoPro.posteDesire" name="posteDesire" required />
+  </div>
+  <div>
+    <label>Lieu de travail souhaité</label>
+    <input type="text" [(ngModel)]="infoPro.lieuTravailSouhaite" name="lieuTravailSouhaite" />
+  </div>
+  <div>
+    <label>URL du CV</label>
+    <input type="text" [(ngModel)]="infoPro.url_cv" name="url_cv" />
+  </div>
+  <button type="submit">Enregistrer</button>
+</form>

@@ -1,0 +1,167 @@
+/* ✅ Réinitialisation générale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ✅ Style général */
+body {
+  background: linear-gradient(to right, #8360c3, #ddebe7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ✅ Conteneur principal (Login, Inscription, Sélection) */
+.login-container, 
+.role-selection-container, 
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 100%;
+
+  /* Centrage absolu en cas de besoin */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ✅ Titre */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ✅ Formulaires */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ✅ Boutons */
+button, .btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover, .btn:hover {
+  background: #764ba2;
+}
+
+/* ✅ Liens */
+p {
+  margin-top: 10px;
+}
+
+p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Sélection de profil */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ✅ Bouton retour */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-back {
+  background: #ccc;
+  color: #0e0d0d;
+}
+
+.btn-back:hover {
+  background: #bbb;
+}
+
+/* ✅ Ajustement pour les fichiers et téléphones */
+input[type="file"] {
+  border: none;
+  padding: 5px;
+}
+
+input[type="tel"], input[type="url"] {
+  width: 100%;
+}
+
+/* ✅ Empêche les pages longues de sortir du centrage */
+@media (max-height: 600px) {
+  body {
+      align-items: flex-start;
+  }
+
+  .login-container, 
+  .role-selection-container, 
+  .form-container {
+      position: static;
+      transform: none;
+      margin-top: 20px;
+  }
+}
+
+/* ✅ Responsive pour petits écrans */
+@media (max-width: 500px) {
+  .login-container, 
+  .role-selection-container, 
+  .form-container {
+      width: 90%;
+      padding: 20px;
+  }
+}

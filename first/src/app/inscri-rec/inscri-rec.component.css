@@ -1,0 +1,72 @@
+/* Conteneur principal */
+.main-container {
+  display: grid;
+  place-items: center; /* Centre horizontalement et verticalement */
+  height: 100vh; /* Hauteur de la fenêtre */
+  width: 100vw; /* Largeur complète */
+}
+
+/* Formulaire */
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 100%;
+}
+
+/* Autres styles conservés */
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #764ba2;
+}
+
+/* Lien de connexion */
+p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

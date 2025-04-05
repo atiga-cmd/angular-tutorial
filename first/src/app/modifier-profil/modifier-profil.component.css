@@ -1,0 +1,199 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+h3 {
+color: white;
+font-size: 24px;
+font-weight: bold;
+}
+
+/* En-tête */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 20px;
+}
+
+header ul {
+    list-style: none;
+    padding-right: 20px;
+    margin: 0;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 15px;
+    position: relative; /* Nécessaire pour le positionnement du menu déroulant */
+
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+header ul li a:hover {
+    background-color: #555;
+}
+ /* Menu déroulant */
+ .dropdown {
+    display: none; /* Masquer le menu déroulant par défaut */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 10px 0;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.dropdown a {
+    padding: 10px 20px;
+    color: white;
+    display: block;
+    text-decoration: none;
+    font-size: 1em;
+}
+  /* Afficher le menu déroulant lorsque la souris survole le menu "Offres d'emploi" */
+  header ul li:hover .dropdown {
+    display: block;
+}
+/* Conteneur principal */
+.container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;  /* Alignement vertical des sections */
+    gap: 30px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto; /* Centrage du conteneur */
+}
+
+.form-container .section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Ajout de l'espace entre chaque section */
+
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea,
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.form-container .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Suppression du compte */
+.account-delete-section {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.account-delete-section h2 {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.account-delete-section p {
+    color: #555;
+}
+
+.account-delete-section .delete-account-btn {
+    background-color: #f44336;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-delete-section .delete-account-btn:hover {
+    background-color: #e53935;
+}
+
+/* Réactivité pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+    }
+}

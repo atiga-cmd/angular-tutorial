@@ -1,0 +1,8 @@
+<div *ngFor="let offre of offres" class="job-card">
+  <h2>{{ offre.title }}</h2>
+  <p><strong>Entreprise:</strong> {{ offre.company }}</p>
+  <p><strong>Lieu:</strong> {{ offre.location }}</p>
+  <p><strong>Description:</strong> {{ offre.description }}</p>
+  <p><strong>Salaire:</strong> {{ offre.salary }}</p>
+  <p><strong>Date de publication:</strong> {{ offre.postedDate | date }}</p>
+</div>

@@ -1,0 +1,23 @@
+<!-- Barre de navigation -->
+<header>
+    <div class="logo">Recrutement Intelligente</div>
+    <nav>
+        <ul>
+            <li><a routerLink="/">Accueil</a></li>
+            <li class="dropdown">
+                <a routerLink="/offres">Offres d'emploi</a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/consulter-offres">Consulter toutes les offres</a></li>
+                    <li><a routerLink="/votre-offre">Consulter votre offre</a></li>
+                    <li><a routerLink="/ajouter-offre">Ajouter une offre</a></li>
+                </ul>
+            </li>
+            <li><a routerLink="/entreprises">Espace Recruteur</a></li>
+            <li><a routerLink="/candidat">Espace Candidat</a></li>
+            <li><a routerLink="/se-connecter" class="btn">Se connecter</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Contenu principal avec l'outlet pour afficher les pages selon les routes -->
+<router-outlet></router-outlet>

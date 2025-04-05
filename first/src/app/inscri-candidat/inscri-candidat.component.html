@@ -1,0 +1,60 @@
+<!--<div class="form-container">
+    <h2>Créer votre profil candidat</h2>
+    <form >
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmer_motdepasse">Confirmer le mot de passe :</label>
+        <input type="password" id="confirmer_motdepasse" name="confirmer_motdepasse" required>
+      </div>
+      <button type="submit" class="btn">Enregistrer</button>
+    </form>
+    <p>Vous Avez déjà un compte ? <a routerLink="/se-connecter">se connecter</a></p>
+
+  </div>-->
+
+
+
+<!-- Message d'erreur -->
+<div *ngIf="erreurMessage" class="error-message">
+  {{ erreurMessage }}
+</div>
+
+<!-- Message de succès -->
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
+<!-- Formulaire d'inscription -->
+<form (ngSubmit)="onSubmit()">
+  <label for="nom">Nom:</label>
+  <input id="nom" type="text" [(ngModel)]="candidat.nomCand" name="nomCand" required>
+
+  <label for="prenom">Prénom:</label>
+  <input id="prenom" type="text" [(ngModel)]="candidat.prenomCand" name="prenomCand" required>
+
+  <label for="email">Email:</label>
+  <input id="email" type="email" [(ngModel)]="candidat.emailCand" name="emailCand" required>
+
+  <label for="password">Mot de passe:</label>
+  <input id="password" type="password" [(ngModel)]="candidat.motPasse_cand" name="motPasse_cand" required>
+
+  <label for="confirm_password">Confirmer le mot de passe:</label>
+  <input id="confirm_password" type="password" [(ngModel)]="candidat.confirmer_motdepasse" name="confirmer_motdepasse" required>
+
+  <button type="submit">completer vos données</button>
+</form>

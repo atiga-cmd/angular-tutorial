@@ -1,0 +1,133 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #8360c3, #ddebe7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  /* Style global du conteneur */
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #0000001a;
+  text-align: center;
+}
+
+  
+  /* Conteneur principal */
+  .login-container, 
+  .role-selection-container  {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  h1, h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Formulaires */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  button, .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover, .btn:hover {
+    background: #764ba2;
+  }
+  
+  /* Liens */
+  p a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sélection de profil */
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn {
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Bouton retour */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .btn-back {
+    background: #ccc;
+    color: #0e0d0d;
+  }
+  
+  .btn-back:hover {
+    background: #bbb;
+  }
+  
+  /* Ajustement pour les fichiers et téléphones */
+  input[type="file"] {
+    border: none;
+    padding: 5px;
+  }
+  
+  input[type="tel"], input[type="url"] {
+    width: 100%;
+  }
+  
+

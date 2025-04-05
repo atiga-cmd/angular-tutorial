@@ -1,0 +1,119 @@
+<!--<div class="form-container">
+    <h2>Informations Personnelles</h2>
+    <form action="infosPro.html" method="post" enctype="multipart/form-data">
+      <div class="user-detail">
+      <div class="form-group">
+        <label for="date_naissance">Date de naissance :</label>
+        <input type="date" id="date_naissance" name="date_naissance" required>
+      </div>
+      <div class="form-group">
+        <label for="sexe">Sexe :</label>
+        <select id="sexe" name="sexe" required>
+          <option value="">Sélectionnez</option>
+          <option value="homme">Homme</option>
+          <option value="femme">Femme</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="etat_civil">État civil :</label>
+        <select id="etat_civil" name="etat_civil" required>
+          <option value="">Sélectionnez</option>
+          <option value="celibataire">Célibataire</option>
+          <option value="marie">Marié(e)</option>
+          <option value="divorce">Divorcé(e)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville :</label>
+        <select id="ville" name="Ville" required>
+          <option value="">Sélectionnez ville</option>
+          <option value="ariana">Ariana</option>
+          <option value="béja">Béja</option>
+          <option value="ben arous">Ben Arous</option>
+          <option value="bizete">Bizete</option>
+          <option value="gabés">Gabés</option>
+          <option value="gafsa">Gafsa</option>
+          <option value="jendouba">Jendouba</option>
+          <option value="kairaoun">Kairaoun</option>
+          <option value="kasserine">Kasserine</option>
+          <option value="kébili">Kébili</option>
+          <option value="le kef">Le Kef</option>
+          <option value="mahdia">Mahdia</option>
+          <option value="manouba">Manouba</option>
+          <option value="médenine">Médenine</option>
+          <option value="monastir">Monastir</option>
+          <option value="nabeul">Nabeul</option>
+          <option value="sfax">Sfax</option>
+          <option value="sidi bouzid">Sidi bouzid</option>
+          <option value="siliana">Siliana</option>
+          <option value="sousse">Sousse</option>
+          <option value="tataouine">Tataouine</option>
+          <option value="tozeur">Tozeur</option>
+          <option value="tunis">Tunis</option>
+          <option value="zaghouan">Zaghouan</option>
+        </select>
+    
+      </div>
+      <div class="form-group">
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required>
+      </div>
+      <div class="form-group">
+        <label for="code_postal">Code Postal :</label>
+        <input type="text" id="code_postal" name="code_postal" required>
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo :</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+      </div>
+      <div class="button-group">
+        <a href="candidat.html" class="btn btn-back">Retour</a>
+        <button type="submit" class="btn">Enregistrer et Continuer</button>
+      </div>
+    </form>
+  </div>-->
+
+  <!-- src/app/info-per/info-per.component.html -->
+<div *ngIf="erreurMessage" class="error">{{ erreurMessage }}</div>
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label>Date de naissance</label>
+    <input type="date" [(ngModel)]="infoPer.dateNaiss" name="dateNaiss" required />
+  </div>
+  <div>
+    <label>Sexe</label>
+    <select [(ngModel)]="infoPer.sexe" name="sexe" required>
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+    </select>
+  </div>
+  <div>
+    <label>État civil</label>
+    <input type="text" [(ngModel)]="infoPer.etat_civil" name="etat_civil" required />
+  </div>
+  <div>
+    <label>Ville</label>
+    <input type="text" [(ngModel)]="infoPer.ville" name="ville" required />
+  </div>
+  <div>
+    <label>Code Postal</label>
+    <input type="text" [(ngModel)]="infoPer.codePostal" name="codePostal" required />
+  </div>
+  <div>
+    <label>Permis</label>
+    <input type="text" [(ngModel)]="infoPer.permis" name="permis" />
+  </div>
+  <div>
+    <label>Photo</label>
+    <input type="text" [(ngModel)]="infoPer.url_photo" name="url_photo" />
+  </div>
+  <div>
+    <label>Numéro de téléphone</label>
+    <input type="text" [(ngModel)]="infoPer.numTel" name="numTel" required />
+  </div>
+  <button type="submit">Enregistrer</button>
+</form>

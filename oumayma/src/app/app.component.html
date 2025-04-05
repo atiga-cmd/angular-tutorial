@@ -1,0 +1,15 @@
+<!--<app-main-header *ngIf="currentRoute === '/' || currentRoute === '/consulter-offres'"></app-main-header>
+<app-candidat-header *ngIf="currentRoute === '/espace-candidat'"></app-candidat-header>
+<app-recruteur-header *ngIf="currentRoute === '/espace-recruteur'"></app-recruteur-header>
+
+<router-outlet></router-outlet>-->
+<app-main-header *ngIf="currentRoute === '/' || currentRoute === '/home'"></app-main-header>
+<app-candidat-header *ngIf="currentRoute === '/espace-candidat'"></app-candidat-header>
+<app-recruteur-header *ngIf="currentRoute === '/espace-recruteur'"></app-recruteur-header>
+
+
+<app-offres-header *ngIf="currentRoute === '/offres'"></app-offres-header>
+<app-seconnecter-header *ngIf="currentRoute === '/seconnecter'"></app-seconnecter-header>
+
+<!-- Contenu principal -->
+<router-outlet></router-outlet>

@@ -1,0 +1,83 @@
+<!----
+<div class="main-container">
+    <div class="form-container">
+        <h2>Créer votre espace recruteur</h2>
+        <form>
+            <div class="form-group">
+                <label for="prenom">Prénom & Nom :</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div> 
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirmation de mot de passe :</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <label for="poste">Poste :</label>
+                <input type="text" id="poste" name="poste" required>
+            </div>
+            <div class="form-group">
+                <label for="nom_entreprise">Nom de l'entreprise :</label>
+                <input type="text" id="nom_entreprise" name="nom_entreprise" required>
+            </div>
+            <button type="submit">S'inscrire</button>
+        </form> 
+        <p>Vous avez déjà un compte ? <a routerLink="/se-connecter">Se connecter</a></p>
+    </div>
+</div>
+-->
+
+<div class="container">
+    <h2>Inscription Recruteur</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nomRec">Nom</label>
+        <input type="text" id="nomRec" [(ngModel)]="recruteur.nomRec" name="nomRec" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="prenomRec">Prénom</label>
+        <input type="text" id="prenomRec" [(ngModel)]="recruteur.prenomRec" name="prenomRec" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="emailRec">Email</label>
+        <input type="email" id="emailRec" [(ngModel)]="recruteur.emailRec" name="emailRec" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="motPasse_rec">Mot de passe</label>
+        <input type="password" id="motPasse_rec" [(ngModel)]="recruteur.motPasse_rec" name="motPasse_rec" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmer_motdepasse">Confirmer le mot de passe</label>
+        <input type="password" id="confirmer_motdepasse" [(ngModel)]="recruteur.confirmer_motdepasse" name="confirmer_motdepasse" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="poste">Poste</label>
+        <input type="text" id="poste" [(ngModel)]="recruteur.poste" name="poste" required class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="entreprise">Entreprise</label>
+        <input type="text" id="entreprise" [(ngModel)]="recruteur.entreprise" name="entreprise" required class="form-control">
+      </div>
+  
+      <!-- Affichage des messages d'erreur et succès -->
+      <div *ngIf="erreurMessage" class="alert alert-danger">{{ erreurMessage }}</div>
+      <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+  </div>
+  
