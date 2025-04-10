@@ -1,133 +1,130 @@
-/* Styles généraux */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #8360c3, #ddebe7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-  }
-  /* Style global du conteneur */
-.form-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px #0000001a;
+/* Messages d'erreur et de succès */
+.error-message, .success-message {
+  padding: 18px;
+  margin-bottom: 22px;
+  border-radius: 14px;
   text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  animation: fadeIn 1s ease forwards;
 }
 
-  
-  /* Conteneur principal */
-  .login-container, 
-  .role-selection-container  {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 400px;
-    max-width: 100%;
-  }
-  
-  h1, h2 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Formulaires */
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  
-  button, .btn {
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease;
-  }
-  
-  button:hover, .btn:hover {
-    background: #764ba2;
-  }
-  
-  /* Liens */
-  p a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  p a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Sélection de profil */
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .btn {
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  /* Bouton retour */
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .btn-back {
-    background: #ccc;
-    color: #0e0d0d;
-  }
-  
-  .btn-back:hover {
-    background: #bbb;
-  }
-  
-  /* Ajustement pour les fichiers et téléphones */
-  input[type="file"] {
-    border: none;
-    padding: 5px;
-  }
-  
-  input[type="tel"], input[type="url"] {
-    width: 100%;
-  }
-  
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 2px solid #c62828;
+}
 
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 2px solid #2e7d32;
+}
+
+/* Formulaire */
+form {
+  max-width: 600px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 45px 35px;
+  background: linear-gradient(135deg, #f0f9ff, #d9e4ff);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  animation: fadeInBounce 1s ease forwards;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-size: 21px;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 19px;
+  margin-bottom: 10px;
+  border: 2px solid #007bff;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Effet focus sur input */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  outline: none;
+  transform: scale(1.02); /* Léger agrandissement lors du focus */
+}
+
+/* Bouton submit */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+  transition: background 0.4s, transform 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover sur bouton */
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #0056b3, #003f88);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 123, 255, 0.5); /* Légère ombre lors du survol */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    padding: 30px 20px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"] {
+    font-size: 17px;
+    padding: 14px 16px; /* Ajuster le padding pour mieux s'adapter aux petits écrans */
+  }
+}
+
+/* Animation fadeIn avec effet de rebond */
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,41 +1,13 @@
-<!--<div class="container">
-    <nav class="sidebar">
-        <ul>
-            <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
-            <li><a routerLink="/candidatures" routerLinkActive="active">Mes Candidatures</a></li>
-            <li><a routerLink="/messages" routerLinkActive="active">Gérer Messages</a></li>
-        </ul>
-    </nav>
 
-    <main class="content">
-        <h2>Mon Profil</h2>
-
-        <div *ngIf="erreurMessage" class="error-message">
-            {{ erreurMessage }}
-        </div>
-
-        <div *ngIf="candidat">
-            <div class="profile-card">
-                <img [src]="candidat.photoUrl || 'img1.jpeg'" alt="Photo de profil" class="profile-pic">
-                <div class="profile-info">
-                    <p><strong>Nom :</strong> {{ candidat.nomCand }} {{ candidat.prenomCand }}</p>
-                    <p><strong>Email :</strong> {{ candidat.emailCand }}</p>
-                    <p><strong>Poste :</strong> {{ candidat.poste }}</p>
-                    <a routerLink="/modifier-profil" class="btn">Modifier</a>
-                </div>
-            </div>
-        </div>
-    </main>
-</div>
--->
 
 
 <div class="container">
   <nav class="sidebar">
     <ul>
       <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
-      <li><a routerLink="/candidatures" routerLinkActive="active">Mes Candidatures</a></li>
-      <li><a routerLink="/messages" routerLinkActive="active">Gérer Messages</a></li>
+      <li><a routerLink="/candidatures" >Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand" >Gérer Messages</a></li>
+      
     </ul>
   </nav>
 

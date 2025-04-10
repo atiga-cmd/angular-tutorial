@@ -1,5 +1,40 @@
+<!---
 @if (recruteur) {
   
   <h2>Bienvenue, {{ recruteur.nomRec }} {{ recruteur.prenomRec }}</h2>
   <p>Email: {{ recruteur.emailRec }}</p>
-}
+  <a routerLink="/ajout-offre">Offres d'emploi</a>
+
+}   -->
+
+
+<div class="container">
+  <div class="menu-bar">
+        <a [routerLink]="['/profil-recruteur', userId]" routerLinkActive="active">
+          Mon Profil
+        </a>
+      
+      <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+      <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
+      <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+      <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+      
+  </div>
+
+  <main class="content">
+    <h2>Mon Profil</h2>
+
+    <div class="profile-card">
+      <img src="img1.jpeg" alt="Photo de profil" class="profile-pic" />
+
+      <div class="profile-info" *ngIf="recruteur">
+        <p><strong>Nom :</strong> {{ recruteur.nomRec }}</p>
+        <p><strong>Prénom :</strong>{{ recruteur.prenomRec }}</p>
+        <p><strong>Email :</strong> {{ recruteur.emailRec }}</p>
+
+        <a routerLink="/modifier-profil" class="btn">Modifier</a>
+      </div>
+
+    </div>
+  </main>
+</div>

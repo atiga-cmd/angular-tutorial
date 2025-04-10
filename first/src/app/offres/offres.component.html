@@ -1,8 +1,14 @@
-<div *ngFor="let offre of offres" class="job-card">
-  <h2>{{ offre.title }}</h2>
-  <p><strong>Entreprise:</strong> {{ offre.company }}</p>
-  <p><strong>Lieu:</strong> {{ offre.location }}</p>
-  <p><strong>Description:</strong> {{ offre.description }}</p>
-  <p><strong>Salaire:</strong> {{ offre.salary }}</p>
-  <p><strong>Date de publication:</strong> {{ offre.postedDate | date }}</p>
+<div *ngIf="offres.length > 0; else noOffres">
+  <ul>
+    <li *ngFor="let offre of offres">
+      <h3>{{ offre.nomESE }}</h3>
+      <p>{{ offre.local }}</p>
+      <p>{{ offre.typePoste }}</p>
+      <p>{{ offre.salaire }} DT</p>
+    </li>
+  </ul>
 </div>
+
+<ng-template #noOffres>
+  <p>{{ errorMessage || 'Aucune offre disponible.' }}</p>
+</ng-template>

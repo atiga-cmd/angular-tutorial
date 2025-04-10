@@ -9,18 +9,18 @@
     </ul>
 </nav>
 
-    
-    <main class="content">
-        <h2>Mes Candidatures</h2>
-        <div class="message-box">
-            
-            <p>Offre: Développeur Web</p>
-            <button class="button">Afficher</button>
-            <button class="button">Annuler</button>
-        </div>
-        <div class="message-box">
-            <p>Offre: Développeur mobile</p>
-            <button class="button">Afficher</button>
-            <button class="button">Annuler</button>
-        </div>
-</main></div>
+<div *ngIf="candidatures.length > 0">
+    <h3>Mes candidatures</h3>
+    <ul>
+      <li *ngFor="let candidature of candidatures">
+        <p>Nom de l'offre: {{ candidature.nomESE }}</p>
+        <p>Date de candidature: {{ candidature.date }}</p>
+        <button (click)="deleteCandidature(candidature.id_candidature)" class="btn">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="candidatures.length === 0">
+    <p>Vous n'avez pas encore postulé à des offres.</p>
+  </div>
+  

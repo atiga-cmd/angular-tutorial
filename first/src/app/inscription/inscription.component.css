@@ -1,167 +1,195 @@
-/* ✅ Réinitialisation générale */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #0056b3;
+  --background-color: #f4f4f4;
+  --white-color: #ffffff;
+  --text-color: #333;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Style général */
 body {
-  background: linear-gradient(to right, #8360c3, #ddebe7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  text-align: center;
   padding: 20px;
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-/* ✅ Conteneur principal (Login, Inscription, Sélection) */
-.login-container, 
-.role-selection-container, 
-.form-container {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+h1 {
   text-align: center;
-  width: 400px;
-  max-width: 100%;
-
-  /* Centrage absolu en cas de besoin */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: #007bff;
+  margin-top: 40px;
 }
 
-/* ✅ Titre */
-h1, h2 {
-  margin-bottom: 20px;
+h3 {
+  text-align: center;
+  font-size: 20px;
   color: #333;
+  margin-bottom: 40px;
 }
 
-/* ✅ Formulaires */
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
+
+
+.image-box, .box {
+  width: 350px;
+  background: var(--white-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+.image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
-input, select, textarea {
+.image-box img {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  height: 100%;
+  object-fit: cover;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 80px;
+
+
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
 }
 
-/* ✅ Boutons */
-button, .btn {
-  display: inline-block;
-  width: 100%;
-  padding: 12px;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-  text-decoration: none;
-  text-align: center;
-}
-
-button:hover, .btn:hover {
-  background: #764ba2;
-}
-
-/* ✅ Liens */
-p {
-  margin-top: 10px;
-}
-
-p a {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-p a:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Sélection de profil */
-.buttons {
+nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #444;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  width: 220px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
 }
 
-.btn {
-  text-align: center;
+nav a {
+  color: var(--white-color);
   text-decoration: none;
+  margin-bottom: 12px;
+  padding: 12px;
+  background-color: #555;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
-/* ✅ Bouton retour */
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+nav a:hover {
+  background-color: #666;
 }
 
-.btn-back {
-  background: #ccc;
-  color: #0e0d0d;
+
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #007bff;
+  margin-top: 40px;
 }
 
-.btn-back:hover {
-  background: #bbb;
+h3 {
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 40px;
 }
 
-/* ✅ Ajustement pour les fichiers et téléphones */
-input[type="file"] {
-  border: none;
-  padding: 5px;
+/* Conteneur principal */
+
+
+/* Boîte commune pour connexion et inscription */
+.box {
+  flex: 1 1 300px;
+  max-width: 300px;
+  background-color: rgba(0, 123, 255, 0.1); /* Fond bleu clair */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
 }
 
-input[type="tel"], input[type="url"] {
-  width: 100%;
+/* Effet au survol des boîtes */
+.box:hover {
+  transform: translateY(-5px);
 }
 
-/* ✅ Empêche les pages longues de sortir du centrage */
-@media (max-height: 600px) {
-  body {
-      align-items: flex-start;
+/* Titre dans les boîtes */
+.box h3,
+.box h2 {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.box h5 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Boutons */
+.box .btn {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+/* Changement de couleur lors du survol du bouton */
+.box .btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
   }
 
-  .login-container, 
-  .role-selection-container, 
-  .form-container {
+  .box, .image-box {
+      max-width: 90%;
+      margin-bottom: 20px;
+
+  }
+
+  nav {
       position: static;
-      transform: none;
-      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
   }
-}
 
-/* ✅ Responsive pour petits écrans */
-@media (max-width: 500px) {
-  .login-container, 
-  .role-selection-container, 
-  .form-container {
-      width: 90%;
-      padding: 20px;
+  nav a {
+      margin-bottom: 0;
+      flex: 1;
   }
 }

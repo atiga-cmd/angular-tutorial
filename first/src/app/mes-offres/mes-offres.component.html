@@ -1,0 +1,33 @@
+<div class="menu-bar">
+  <a [routerLink]="['/profil-recruteur', userId]">Mon Profil</a>
+  <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+  <a [routerLink]="'/gerer-offre'" routerLinkActive="active" >Gérer mes offres</a>
+  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+</div>
+
+<div class="offres-list">
+  <h2>Liste des Offres</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom de l'entreprise</th>
+        <th>Poste</th>
+        <th>Localisation</th>
+        <th>Statut</th>
+        <th>Date de publication</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offre of offres">
+        <td>{{ offre.nomEntreprise }}</td>
+        <td>{{ offre.typePoste }}</td>
+        <td>{{ offre.local }}</td>
+        <td>{{ offre.statut }}</td>
+        <td>{{ offre.datePublication | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button routerLink="/ajout-offre" class="btn-ajouter">Ajouter une offre</button>

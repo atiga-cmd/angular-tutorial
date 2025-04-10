@@ -1,0 +1,77 @@
+
+  <div class="menu-bar">
+    <a [routerLink]="['/profil-recruteur', userId]" routerLinkActive="active">
+      Mon Profil
+    </a>
+  
+  <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+  <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
+  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+  </div>
+  
+  <div class="container">
+    <h2>Mon Profil</h2>
+  
+    <form (ngSubmit)="onSaveProfile()">
+      <div class="section">
+        <h3>Informations de base</h3>
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" [(ngModel)]="recruteur.nom" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input type="text" id="prenom" [(ngModel)]="recruteur.prenom" name="prenom" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input type="email" id="email" [(ngModel)]="recruteur.email" name="email" required>
+        </div>
+      </div>
+  
+      <div class="section">
+        <h3>Informations professionnelles</h3>
+        <div class="form-group">
+          <label for="post">Poste :</label>
+          <input type="text" id="post" [(ngModel)]="recruteur.poste" name="poste" required>
+        </div>
+        <div class="form-group">
+          <label for="entreprise">Entreprise :</label>
+          <input type="text" id="entreprise" [(ngModel)]="recruteur.entreprise" name="entreprise" required>
+        </div>
+      </div>
+  
+      <div class="actions">
+        <button type="submit" class="save-btn">Sauvegarder les modifications</button>
+        <button type="reset" class="cancel-btn">Annuler</button>
+      </div>
+    </form>
+  
+    <form (ngSubmit)="onChangePassword()">
+      <div class="section">
+        <h3>Modifier le mot de passe</h3>
+        <div class="form-group">
+          <label for="old-password">Ancien mot de passe :</label>
+          <input type="password" id="old-password" [(ngModel)]="oldPassword" name="oldPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="new-password">Nouveau mot de passe :</label>
+          <input type="password" id="new-password" [(ngModel)]="newPassword" name="newPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmer_motdepasse">Confirmer le nouveau mot de passe :</label>
+          <input type="password" id="confirmer_motdepasse" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+        </div>
+        <button type="submit" class="save-btn">Modifier le mot de passe</button>
+        <button type="reset" class="cancel-btn">Annuler</button>
+      </div>
+    </form>
+  
+    <div class="account-delete-section">
+      <h3>Supprimer le compte</h3>
+      <p>Cette action supprimera définitivement votre compte. Êtes-vous sûr(e) de vouloir continuer ?</p>
+      <button (click)="onDeleteAccount()" class="delete-account-btn">Supprimer le compte</button>
+    </div>
+  </div>
+  

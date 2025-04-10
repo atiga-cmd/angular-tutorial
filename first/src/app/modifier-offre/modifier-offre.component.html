@@ -1,0 +1,77 @@
+
+
+<body>
+
+
+  <div class="menu-bar">
+    <a [routerLink]="['/profil-recruteur', userId]" routerLinkActive="active">
+      Mon Profil
+    </a>
+  
+  <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+  <a [routerLink]="'/gerer-offre'"routerLinkActive="active">Gérer mes offres</a>
+  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+  </div>
+
+  <div class="container">
+    <h1>Modifier l'Offre</h1>
+
+    <p class="intro-text">
+      Modifiez les informations de votre offre d'emploi pour la rendre plus attractive aux candidats.
+    </p>
+
+    <form (ngSubmit)="onSubmit()" class="offer-form">
+      <section class="job-offer">
+        <label for="poste">Poste :</label>
+        <input type="text" id="poste" name="poste" [(ngModel)]="poste" required>
+      </section>
+
+      <section class="job-description">
+        <h2>Description de Poste</h2>
+        <h3>Missions :</h3>
+        <textarea name="missions" rows="3" [(ngModel)]="missions"></textarea>
+
+        <h3>Salaire :</h3>
+        <input type="number" name="salaire" [(ngModel)]="salaire" min="0" required>
+
+        <h3>Lieu :</h3>
+        <input type="text" name="lieu" [(ngModel)]="lieu" required>
+      </section>
+
+      <section class="profil-cherche">
+        <h2>Profil Cherché (Compétences)</h2>
+        <textarea id="profil" name="profil" rows="3" [(ngModel)]="profil" required></textarea>
+      </section>
+
+      <section class="company-info">
+        <h2>Coordonnées de l'Entreprise</h2>
+
+        <label for="nom-entreprise">Nom de l'Entreprise :</label>
+        <input type="text" id="nom-entreprise" name="nom-entreprise" [(ngModel)]="nomEntreprise" required>
+
+        <label for="tel">Téléphone :</label>
+        <input type="tel" id="tel" name="tel" [(ngModel)]="tel" required>
+
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse" [(ngModel)]="adresse" required>
+
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" [(ngModel)]="ville" required>
+
+        <label for="site-web">Site Web :</label>
+        <input type="url" id="site-web" name="site-web" [(ngModel)]="siteWeb" required>
+
+        <label for="domaine">Domaine :</label>
+        <input type="text" id="domaine" name="domaine" [(ngModel)]="domaine" required>
+
+        <label for="date">Date de Publication :</label>
+        <input type="date" id="date" name="date" [(ngModel)]="datePublication" required>
+      </section>
+
+      <button type="submit" class="submit-btn" [disabled]="!poste || !missions || !salaire || !lieu || !profil || !nomEntreprise || !tel || !adresse || !ville || !siteWeb || !domaine || !datePublication">
+        Enregistrer les Modifications
+      </button>
+    </form>
+  </div>
+</body>

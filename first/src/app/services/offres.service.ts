@@ -1,32 +1,97 @@
+/*import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+// Définir l'interface pour les données des offres
+export interface Offre {
+  id_offre: number;
+  nomESE: string;
+  local: string;
+  typePoste: string;
+  missions: string;
+  competences: string;
+  domaine: string;
+  salaire: number;
+  statut: string;
+  datePublication: string;
+  id_rec: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OffreService {
+
+  private apiUrl = 'http://localhost:5000/api/offres'; // L'URL de l'API
+
+  constructor(private http: HttpClient) { }
+
+  // Récupérer toutes les offres
+  getOffres(): Observable<Offre[]> {
+    return this.http.get<Offre[]>(this.apiUrl);
+  }
+
+  // Exemple d'appel HTTP avec gestion des erreurs
+  fetchOffres() {
+    this.http.get<Offre[]>(this.apiUrl).subscribe(
+      (data: Offre[]) => {
+        console.log('Offres récupérées', data);
+      },
+      (error: any) => {  // Typage explicite de l'erreur
+        console.error('Erreur lors du chargement des offres:', error);
+      }
+    );
+  }
+}
+*/
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Définir l'interface pour les données des offres
+export interface Offre {
+  id_offre: number;
+  nomESE: string;
+  local: string;
+  typePoste: string;
+  missions: string;
+  competences: string;
+  domaine: string;
+  salaire: number;
+  statut: string;
+  datePublication: string;
+  id_rec: number;
+}
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class OffresService {
-  private apiUrl = 'http://localhost:5000/api/offres';
+export class OffreService {
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:5000/api/offres'; // L'URL de l'API
 
-  getAllOffres(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  constructor(private http: HttpClient) { }
+
+  // Récupérer toutes les offres
+  getOffres(): Observable<Offre[]> {
+    return this.http.get<Offre[]>(this.apiUrl);
   }
 
-  getOffreById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${id}`);
+  // Récupérer les offres d'un recruteur spécifique par ID
+  getOffresByRecruteurId(recruteurId: number): Observable<Offre[]> {
+    const url = `${this.apiUrl}?id_rec=${recruteurId}`;  // Assurez-vous que votre API prend en charge ce paramètre
+    return this.http.get<Offre[]>(url);
   }
 
-  addOffre(offre: any): Observable<any> {
-    return this.http.post(this.apiUrl, offre);
-  }
-
-  updateOffre(id: string, offre: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, offre);
-  }
-
-  deleteOffre(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  // Exemple d'appel HTTP avec gestion des erreurs
+  fetchOffres() {
+    this.http.get<Offre[]>(this.apiUrl).subscribe(
+      (data: Offre[]) => {
+        console.log('Offres récupérées', data);
+      },
+      (error: any) => {  // Typage explicite de l'erreur
+        console.error('Erreur lors du chargement des offres:', error);
+      }
+    );
   }
 }

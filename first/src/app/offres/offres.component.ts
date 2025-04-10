@@ -1,15 +1,6 @@
-/*import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OffreService, Offre } from '../services/offres.service'; // Assure-toi que le chemin d'importation est correct
 
-@Component({
-  selector: 'app-offres',
-  imports: [],
-  templateUrl: './offres.component.html',
-  styleUrl: './offres.component.css'
-})
-export class OffresComponent {
-
-}*/
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -19,9 +10,30 @@ import { CommonModule } from '@angular/common';
   templateUrl: './offres.component.html',
   styleUrls: ['./offres.component.css']
 })
-export class OffresComponent {
-  offres = [
-    { id: 1, title: 'Développeur Angular', company: 'TechCorp', location: 'Paris', description: 'Poste en CDI', salary: '50k€/an', postedDate: new Date() },
-    { id: 2, title: 'Développeur Full-Stack', company: 'InnovIT', location: 'Lyon', description: 'Poste en Freelance', salary: '55k€/an', postedDate: new Date() }
-  ];
-}
+  
+
+  export class OffresComponent implements OnInit {
+    offres: Offre[] = [];
+    errorMessage: string = '';
+  
+    constructor(private offreService: OffreService) {}
+  
+    ngOnInit(): void {
+      this.getOffres();
+    }
+  
+    // Appel au service pour récupérer les offres
+    getOffres(): void {
+      this.offreService.getOffres().subscribe(
+        (data: Offre[]) => {
+          this.offres = data;
+          console.log('Offres récupérées', data);
+        },
+        (error) => {
+          this.errorMessage = 'Erreur lors du chargement des offres';
+          console.error('Erreur lors du chargement des offres:', error);
+        }
+      );
+    }
+  }
+  

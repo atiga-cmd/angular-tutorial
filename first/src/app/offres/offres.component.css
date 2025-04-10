@@ -1,12 +1,64 @@
-.job-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #007bff;
-  }
-  
+/* Conteneur principal des offres */
+div {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Liste des offres */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Élément de chaque offre avec boîte bleue */
+li {
+  background-color: rgba(0, 123, 255, 0.1); /* Fond bleu pour chaque offre */
+  color: #ffffff; /* Texte en blanc */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol des éléments de la liste */
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de l'offre (Nom de l'entreprise ou du poste) */
+li h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color:#007bff;
+
+}
+
+/* Localisation de l'offre */
+li p {
+  font-size: 18px;
+  margin: 5px 0;
+  color:#007bff;
+
+}
+
+/* Type du poste */
+li p:nth-child(2) {
+  font-style: italic;
+}
+
+/* Salaire de l'offre */
+li p:last-child {
+  font-weight: bold;
+}
+
+/* Message d'erreur si aucune offre disponible */
+ng-template p {
+  font-size: 18px;
+  color: #d9534f; /* Couleur rouge pour l'erreur */
+  font-weight: 500;
+  margin-top: 20px;
+}

@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
+import { UserService } from '../../services/user.service';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-profil',
+  standalone: true,
+  imports: [RouterModule, CommonModule],
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css'],
-  standalone: true,
-  imports: [CommonModule] // Ajout de CommonModule
+  
 })
 export class ProfilComponent implements OnInit {
   profil: any;

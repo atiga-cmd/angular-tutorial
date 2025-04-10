@@ -1,73 +1,73 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --background-color: #f4f4f4;
+    --white-color: #ffffff;
+    --text-color: #333;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
     text-align: center;
     padding: 20px;
+    margin: 0;
 }
 .container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
 }
-.image-box {
-width: 350px;
-height: 400px;
-background: white;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-text-align: left;
-}
-.image-box {
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 0;
-overflow: hidden;
-}
-.image-box img {
-width: 100%;
-height: 100%;
-object-fit: cover; /* Ajuste l'image pour couvrir tout le box */
-border-radius: 10px;}
 
-.box {
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #007bff;
+    margin-top: 40px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+
+
+.image-box, .box {
     width: 350px;
-    background: white;
-    padding: 20px;
+    background: var(--white-color);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.form-group {
-    margin-bottom: 15px;
+
+.image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
-.form-group label {
-    display: block;
-    font-weight: bold;
-}
-.form-group input {
+
+.image-box img {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 100%;
+    object-fit: cover;
 }
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+
+
+
+
 .btn:hover {
-    opacity: 0.8;
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
 }
-/* Menu de navigation */
+
 nav {
     position: absolute;
     top: 20px;
@@ -78,30 +78,137 @@ nav {
     flex-direction: column;
     width: 220px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
 }
 
 nav a {
-    color: white;
+    color: var(--white-color);
     text-decoration: none;
     margin-bottom: 12px;
     padding: 12px;
     background-color: #555;
     border-radius: 5px;
-    transition: background-color 0.3s;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 nav a:hover {
     background-color: #666;
 }
-.exemp {
-    width: 100%;
-    padding: 10px;
+
+
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #007bff;
+    margin-top: 40px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Conteneur principal */
+
+
+/* Boîte commune pour connexion et inscription */
+.box {
+    flex: 1 1 300px;
+    max-width: 300px;
+    background-color: rgba(0, 123, 255, 0.1); /* Fond bleu clair */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Effet au survol des boîtes */
+.box:hover {
+    transform: translateY(-5px);
+}
+
+/* Titre dans les boîtes */
+.box h3,
+.box h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.box h5 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Boutons */
+.box .btn {
     background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+/* Changement de couleur lors du survol du bouton */
+.box .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuster la taille des images dans .image-box */
+.image-box img {
+    width: 100%;  /* S'assure que l'image occupe toute la largeur du conteneur */
+    height: auto; /* Conserve les proportions de l'image */
+    object-fit: cover; /* S'assure que l'image couvre tout l'espace sans être déformée */
+}
+
+/* Option supplémentaire si vous voulez que l'image ait une hauteur spécifique tout en gardant la proportion */
+.image-box img {
+    width: 100%;  /* occupe toute la largeur */
+    max-height: 250px; /* Limite la hauteur maximale */
+    object-fit: cover; /* Couvre l'espace sans déformation */
+}
+
+
+/* Ajuster la taille des images dans .image-box */
+.image-box img {
+    width: 100%;  /* L'image occupe toute la largeur du conteneur */
+    height: 200px; /* Définir une hauteur fixe pour toutes les images */
+    object-fit: cover; /* Couvre l'espace sans déformation, en recadrant si nécessaire */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box, .image-box {
+        max-width: 90%;
+        margin-bottom: 20px;
+
+    }
+
+    nav {
+        position: static;
+        margin-bottom: 20px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-bottom: 0;
+        flex: 1;
+    }
 }

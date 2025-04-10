@@ -1,184 +1,269 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa;
-    margin: 0;
-    padding: 0;
-}
-h3 {
-color: white;
-font-size: 24px;
-font-weight: bold;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e0f7fa;
+  display: flex;
 }
 
+/* Main Content */
 
-
-/* Conteneur principal */
-.container {
-    display: flex;
-    justify-content: flex-start;
-    padding: 30px;
+/* Buttons */
+.button, .btn {
+  background-color: #0288d1;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin: 8px 0;
 }
 
-.navbar {
-background-color: #007bff;
-padding: 15px;
-text-align: center;
-width: 100%;
-position: fixed;
-top: 0;
-left: 0;
-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.button:hover, .btn:hover {
+  background-color: #01579b;
 }
 
-.navbar a {
-color: white;
-margin: 0 15px;
-text-decoration: none;
-font-size: 18px;
-font-weight: bold;
+/* Forms */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
 }
 
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+  border-color: #0288d1;
+  outline: none;
+}
+
+/* Layout form */
+.ajouter-offre-container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px gray;
+}
+
+h2 {
+  color: #01579b;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  color: #01579b;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Hyperlinks */
+a {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #01579b;
+}
+
+/* Menu bar (Sidebar) */
+.menu-bar {
+  background-color: #b3e5fc;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-bar a {
+  color: #01579b;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-bar a:hover, .menu-bar a.active {
+  background-color: #4fc3f7;
+  color: white;
+}
+
+/* Sidebar */
 .sidebar {
-background-color: #b3e5fc;
-width: 250px;
-height: 100vh;
-position: fixed;
-left: 0;
-top: 50px;
-padding-top: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
-color: white;
-
-
+  background-color: #b3e5fc;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  color: white;
 }
-
 
 .sidebar ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-margin: 20px 0;
-}
-.sidebar ul li a:hover,
-.sidebar ul li a.active {
-background-color: #4fc3f7;
+  margin: 20px 0;
 }
 
 .sidebar ul li a {
-color: #01579b;
-text-decoration: none;
-padding: 15px;
-display: block;
-width: 100%;
-text-align: center;
-font-size: 16px;
-font-weight: bold;
-transition: 0.3s;
-padding: 10px;
-border-radius: 5px;
-text-align: left;
-
+  color: #01579b;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;  /* Alignement vertical des sections */
-    gap: 30px;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    margin: 0 auto; /* Centrage du conteneur */
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background-color: #4fc3f7;
 }
 
-.form-container .section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Ajout de l'espace entre chaque section */
-
+/* Container */
+.container {
+  margin-left: 270px; /* Positionnement à droite de la sidebar */
+  margin-top: 70px;
+  width: 70%;
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px gray;
+  background-size: cover;
 }
 
-.form-container label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #444;
+/* Responsive (important pour mobile) */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 200px;
+  }
+  .container, .ajouter-offre-container {
+      margin-left: 210px;
+      width: calc(100% - 230px);
+      padding: 20px;
+  }
 }
 
-.form-container input,
-.form-container select,
-.form-container textarea,
-.form-container button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+@media (max-width: 480px) {
+  .sidebar {
+      display: none;
+  }
+  .navbar {
+      justify-content: space-around;
+  }
+  .container, .ajouter-offre-container {
+      margin: 80px 10px 10px 10px;
+      width: calc(100% - 20px);
+  }
+}
+/* Container for the form */
+.ajouter-offre-container {
+  width: 50%; /* Ajustez cette largeur selon vos besoins */
+  margin: 0 auto; /* Centrer horizontalement */
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px gray;
 }
 
-.form-container input:focus,
-.form-container select:focus,
-.form-container textarea:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+/* Title styling */
+h2 {
+  color: #01579b;
+  margin-bottom: 20px;
+  text-align: center; /* Centrer le titre */
 }
 
-.form-container button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Form fields */
+form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.form-container button:hover {
-    background-color: #45a049;
+label {
+  font-weight: bold;
+  color: #01579b;
+  margin-bottom: 5px;
 }
 
-.form-container .actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+  width: 100%;
 }
 
-/* Suppression du compte */
-.account-delete-section {
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+button:hover {
+  background-color: #218838;
 }
 
-.account-delete-section h2 {
-    color: #f44336;
-    font-weight: bold;
+/* Responsive (important pour mobile) */
+@media (max-width: 768px) {
+  .ajouter-offre-container {
+    width: 80%; /* Plus large sur les écrans plus petits */
+  }
 }
 
-.account-delete-section p {
-    color: #555;
+@media (max-width: 480px) {
+  .ajouter-offre-container {
+    width: 90%; /* Prend encore plus de place sur les très petits écrans */
+  }
 }
-
-.account-delete-section .delete-account-btn {
-    background-color: #f44336;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.account-delete-section .delete-account-btn:hover {
-    background-color: #e53935;
-}
-
