@@ -3,35 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',  // Service global accessible dans toute l'application
+  providedIn: 'root',
 })
 export class GererOffreService {
+  private apiUrl = 'http://localhost:5000/api'; // URL de ton backend
 
-  private apiUrl = 'http://localhost:5000/api/offres';  // L'URL de l'API pour récupérer les offres
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Récupérer toutes les offres
-  getOffres(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/offres`);
-  }
-
-  // Récupérer une offre par son ID
-  getOffreById(offerId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/offres/${offerId}`);
-  }
-
-  // Ajouter une nouvelle offre
-  addOffre(offre: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/offres`, offre);
-  }
-
-  // Modifier une offre
-  updateOffre(offerId: number, offre: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/offres/${offerId}`, offre);
+  // Récupérer les offres par recruteur
+  getOffresByRecruteur(idRecruteur: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/offres/recruteur/${idRecruteur}`);
   }
 
   // Supprimer une offre
-  deleteOffre(offerId: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/offres/${offerId}`);
+  supprimerOffre(idOffre: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/supprimer/${idOffre}`);
   }
+
+  getOffreById(id: number) {
+    return this.http.get<any>(`http://localhost:5000/api/offre/${id}`);
+  }
+  
+  updateOffre(id: number, data: any) {
+    return this.http.put(`http://localhost:5000/api/modifier/${id}`, data);
+  }
+  
+  
 }

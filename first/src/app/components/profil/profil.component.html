@@ -1,13 +1,10 @@
-
-
-
 <div class="container">
   <nav class="sidebar">
     <ul>
       <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
-      <li><a routerLink="/candidatures" >Mes Candidatures</a></li>
-      <li><a routerLink="/messagescand" >Gérer Messages</a></li>
-      
+      <li><a routerLink="/candidatures">Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand">Gérer Messages</a></li>
+      <li><a routerLink="/recherche-offre">Recherche Offre</a></li>
     </ul>
   </nav>
 
@@ -22,7 +19,11 @@
         <p><strong>Prénom :</strong> {{ profil.prenomCand }}</p>
         <p><strong>Email :</strong> {{ profil.emailCand }}</p>
 
-        <a routerLink="/modifier-profil" class="btn">Modifier</a>
+        <div class="btn-group">
+          <a routerLink="/profil-per" class="btn blue">Profil Personnel</a>
+          <a routerLink="/profil-pro" class="btn blue">Profil Professionnel</a>
+          <a routerLink="/modifier-profil" class="btn orange">Modifier</a>
+        </div>
       </div>
 
       <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>

@@ -9,17 +9,26 @@
   <a [routerLink]="'/gerer-offre'"routerLinkActive="active">Gérer mes offres</a>
   <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
   <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+  <li><a routerLink="/deconnexion-rec">🔑 Déconnexion</a></li>
+
   </div>
-  
-  <div class="container">
-    <h2>Gérer mes Offres</h2>
-    <div class="offer-list">
-      <div *ngFor="let offer of offers" class="offer">
-        <h3>{{ offer.title }}</h3>
-        <p>Localisation: {{ offer.location }}</p>
-        <button (click)="onEditOffer(offer.id)">Modifier</button>
-        <button (click)="onDeleteOffer(offer.id)">Retirer</button>
+
+    <div class="container">
+      <h2>Mes Offres</h2>
+    
+      <div *ngIf="offres.length > 0; else noOffre">
+        <div *ngFor="let offre of offres" class="offre-card">
+          <h3>{{ offre.typePoste }}</h3>
+          <p><strong>Entreprise :</strong> {{ offre.nomESE }}</p>
+          <p><strong>Localisation :</strong> {{ offre.local }}</p>
+          <p><strong>Domaine :</strong> {{ offre.domaine }}</p>
+          <p><strong>Compétences :</strong> {{ offre.competences }}</p>
+          <button class="btn-modifier" [routerLink]="['/modifier-offre', offre.id_offre]">Modifier</button>
+          <button (click)="supprimerOffre(offre.id_offre)">Supprimer</button>
+        </div>
       </div>
+    
+      <ng-template #noOffre>
+        <p>Aucune offre trouvée.</p>
+      </ng-template>
     </div>
-  </div>
-  

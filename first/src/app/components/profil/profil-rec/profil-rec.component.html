@@ -16,7 +16,7 @@
       
       <a [routerLink]="'/ajout-offre'">Publier une offre</a>
       <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
-      <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+      <a [routerLink]="'/les-candidatures'">Candidatures reçues</a>
       <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
       
   </div>
@@ -31,8 +31,11 @@
         <p><strong>Nom :</strong> {{ recruteur.nomRec }}</p>
         <p><strong>Prénom :</strong>{{ recruteur.prenomRec }}</p>
         <p><strong>Email :</strong> {{ recruteur.emailRec }}</p>
+        <p><strong>Poste :</strong> {{ recruteur.poste }}</p>
+        <p><strong>Entreprise :</strong> {{ recruteur.entreprise }}</p>
 
-        <a routerLink="/modifier-profil" class="btn">Modifier</a>
+<!-- Lien pour accéder à la page de modification du profil -->
+<a [routerLink]="['/modifier-profil-rec', userId]" class="btn">Modifier</a>
       </div>
 
     </div>

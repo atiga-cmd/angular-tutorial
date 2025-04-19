@@ -1,15 +1,11 @@
-
-  <div class="menu-bar">
-
-  <a [routerLink]="['/profil-recruteur', userId]">
-    Mon Profil
-  </a>
-
-<a [routerLink]="'/ajout-offre'"routerLinkActive="active">Publier une offre</a>
-<a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
-<a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
-<a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+<div class="menu-bar">
+  <a [routerLink]="['/profil-recruteur', userId]">Mon Profil</a>
+  <a [routerLink]="'/ajout-offre'" routerLinkActive="active">Publier une offre</a>
+  <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
+  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
 </div>
+
 <div class="ajouter-offre-container">
   <h2>Ajouter une Offre</h2>
   <form (ngSubmit)="ajouterOffre()">
@@ -56,10 +52,20 @@
       </select>
     </div>
 
+    <!-- Affichage du message d'erreur global si il existe -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <!-- Affichage du message de succès si l'offre est ajoutée avec succès -->
+    <div *ngIf="successMessage" class="success-message">
+      <p>{{ successMessage }}</p>
+    </div>
+
     <div>
-      <button type="submit" [disabled]="!nomEntreprise || !local || !typePoste || !missions || !competences || !domaine || !salaire">Ajouter l'offre</button>
+      <button (click)="ajouterOffre()">Ajouter une offre</button>
     </div>
   </form>
-  <a routerLink="/offres">Consulter vos offres</a>
 
+  <a routerLink="/gerer-offre">Consulter vos offres</a>
 </div>

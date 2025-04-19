@@ -1,0 +1,53 @@
+
+<div class="menu-bar">
+  <a [routerLink]="['/profil-recruteur', idRecruteur]" routerLinkActive="active">
+    Mon Profil
+  </a>
+
+<a [routerLink]="'/ajout-offre'">Publier une offre</a>
+<a [routerLink]="'/gerer-offre'"routerLinkActive="active">Gérer mes offres</a>
+<a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+<a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+</div>
+
+<div class="search-container">
+  <h2>Recherche de candidats</h2>
+
+  <!-- Formulaire de recherche -->
+  <form (ngSubmit)="rechercher()">
+    <div>
+      <label for="competence">Compétence :</label>
+      <input id="competence" type="text" [(ngModel)]="competence" name="competence" placeholder="Ex : Angular">
+    </div>
+    <div>
+      <label for="posteDesire">Poste désiré :</label>
+      <input id="posteDesire" type="text" [(ngModel)]="posteDesire" name="posteDesire" placeholder="Ex : Développeur Front-end">
+    </div>
+    <div>
+      <button type="submit">Rechercher</button>
+    </div>
+  </form>
+
+  <!-- Liste des candidats -->
+  <div *ngFor="let candidat of candidats" class="candidat-card">
+    <h2>{{ candidat.prenom }} {{ candidat.nom }}</h2>
+    <p><strong>Email :</strong> {{ candidat.email || '-' }}</p>
+    <p><strong>Niveau d'éducation :</strong> {{ candidat.niveauEducation || '-' }}</p>
+    <p><strong>Diplôme obtenu :</strong> {{ candidat.diplomeObtenu || '-' }}</p>
+    <p><strong>Établissement :</strong> {{ candidat.etablissement || '-' }}</p>
+    <p><strong>Niveau d'expérience :</strong> {{ candidat.niveauExperience || '-' }}</p>
+    <p><strong>Statut actuel :</strong> {{ candidat.statutActuel || '-' }}</p>
+    <p><strong>Compétences :</strong> {{ candidat.competences || '-' }}</p>
+    <p><strong>Langues :</strong> {{ candidat.langues || '-' }}</p>
+    <p><strong>Poste désiré :</strong> {{ candidat.posteDesire || '-' }}</p>
+    <p><strong>Lieu de travail souhaité :</strong> {{ candidat.lieuTravailSouhaite || '-' }}</p>
+  
+    <p><strong>CV :</strong>
+      <a *ngIf="candidat.url_cv" [href]="candidat.url_cv" target="_blank">Voir le CV</a>
+      <span *ngIf="!candidat.url_cv">Pas de CV disponible</span>
+    </p>
+  
+    <a [routerLink]="['/contacter-candidat', candidat.id_candidat]">Voir plus</a>
+
+  <hr>
+</div>

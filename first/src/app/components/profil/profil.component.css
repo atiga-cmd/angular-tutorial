@@ -171,3 +171,37 @@ h2 {
        
 }
 
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .btn.blue {
+    background-color: #0288d1;
+    color: white;
+  }
+  
+  .btn.blue:hover {
+    background-color: #01579b;
+  }
+  
+  .btn.orange {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .btn.orange:hover {
+    background-color: #ef6c00;
+  }
+  

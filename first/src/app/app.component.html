@@ -30,8 +30,7 @@
 <app-seconnecter-header *ngIf="currentRoute === '/se-connecter'"></app-seconnecter-header>
 <app-inscription-header *ngIf="['/inscription', '/inscri-rec', '/inscri-candidat'].includes(currentRoute)"></app-inscription-header>
 
-<app-general-header *ngIf="currentRoute.startsWith('/profil') || currentRoute.startsWith('/profil-recruteur')"></app-general-header>
-<app-general-header *ngIf="currentRoute === '/messagescand' ||currentRoute === '/candidatures' ||currentRoute === '/modifier-profil' ||currentRoute === '/modifier-offre' || currentRoute === '/modifier-profil-rec'|| currentRoute === '/candidature-recu'|| currentRoute === '/gerer-offre'|| currentRoute === '/ajout-offre' || currentRoute === '/mes-offres'"></app-general-header>
-
+<app-general-header *ngIf="currentRoute.startsWith('/modifier-profil-rec') || currentRoute.startsWith('/profil') || currentRoute.startsWith('/profil-recruteur')"></app-general-header>
+<app-general-header *ngIf="currentRoute === '/recherche-candidats' ||currentRoute === '/messagescand' ||currentRoute === '/candidatures' ||currentRoute === '/modifier-profil' ||currentRoute === '/modifier-offre' || currentRoute === '/modifier-profil-rec'|| currentRoute === '/candidature-recu'|| currentRoute === '/gerer-offre'|| currentRoute === '/ajout-offre' || currentRoute === '/mes-offres'"></app-general-header>
 <!-- Contenu principal -->
 <router-outlet></router-outlet>

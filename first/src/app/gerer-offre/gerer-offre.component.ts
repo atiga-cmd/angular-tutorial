@@ -13,48 +13,57 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./gerer-offre.component.css']
 })
 export class GererOffreComponent implements OnInit {
-
-  offers: any[] = [];
-  // Ajout de la propriété userId pour que le template y ait accès
-  public userId: string | null = null;
-
-  constructor(
-    private router: Router,
-    private gererOffreService: GererOffreService
-  ) {}
-
-  ngOnInit(): void {
-    // Récupération de l'ID du recruteur depuis le localStorage
-    this.userId = localStorage.getItem('userId');
-
-    // Récupérer la liste des offres depuis le service
-    this.gererOffreService.getOffres().subscribe(
-      (data) => {
-        this.offers = data;
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des offres', error);
+    offres: any[] = [];
+    userId: string | null = null;  // Déclaration correcte de userId
+  
+    constructor(
+      private offreService: GererOffreService,
+      private router: Router
+    ) {}
+  
+    ngOnInit(): void {
+      // Récupération de l'ID du recruteur depuis le localStorage
+      this.userId = localStorage.getItem('userId');  // Récupération correcte
+  
+      // Vérifier si l'ID est bien présent
+      if (this.userId) {
+        const idRecruteur = Number(this.userId); // Conversion en number si nécessaire
+        this.offreService.getOffresByRecruteur(idRecruteur).subscribe({
+          next: (data) => {
+            this.offres = data;
+            console.log('✅ Offres reçues :', data);
+          },
+          error: (error) => {
+            console.error('❌ Erreur lors du chargement des offres :', error);
+          }
+        });
+      } else {
+        console.warn('Aucun ID recruteur trouvé dans le localStorage.');
       }
-    );
-  }
-
-  // Méthode pour supprimer une offre
-  onDeleteOffer(offerId: number): void {
-    if (confirm('Êtes-vous sûr(e) de vouloir supprimer cette offre ?')) {
-      this.gererOffreService.deleteOffre(offerId).subscribe(
-        () => {
-          console.log('Offre supprimée avec ID:', offerId);
-          this.offers = this.offers.filter(offer => offer.id !== offerId);
+    }
+  
+    // Méthode pour gérer la modification d'une offre
+    modifierOffre(id: number): void {
+      this.router.navigate(['/modifier-offre', id]);
+    }
+  
+    // Méthode pour gérer la suppression d'une offre
+    // Méthode pour gérer la suppression d'une offre avec confirmation
+  supprimerOffre(id: number): void {
+    const confirmation = window.confirm("Êtes-vous sûr de vouloir supprimer cette offre ?");
+    if (confirmation) {
+      this.offreService.supprimerOffre(id).subscribe({
+        next: () => {
+          this.offres = this.offres.filter((offre) => offre.id_offre !== id);
+          alert('✅ Offre supprimée avec succès');
+          console.log('✅ Offre supprimée');
         },
-        (error) => {
-          console.error('Erreur lors de la suppression de l\'offre', error);
+        error: (err) => {
+          console.error('❌ Erreur lors de la suppression de l\'offre :', err);
         }
-      );
+      });
+    } else {
+      console.log('❌ Suppression annulée');
     }
   }
-
-  // Méthode pour rediriger vers la page de modification de l'offre
-  onEditOffer(offerId: number): void {
-    this.router.navigate(['/modifier-offre', offerId]);
   }
-}

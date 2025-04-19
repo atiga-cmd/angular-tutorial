@@ -1,0 +1,11 @@
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="persoInfo">
+  <h2>Informations Personnelles</h2>
+  <p><strong>Date de naissance :</strong> {{ persoInfo.dateNaiss | date }}</p>
+  <p><strong>Sexe :</strong> {{ persoInfo.sexe }}</p>
+  <p><strong>État civil :</strong> {{ persoInfo.etat_civil }}</p>
+  <p><strong>Ville :</strong> {{ persoInfo.ville }}</p>
+  <p><strong>Code postal :</strong> {{ persoInfo.codePostal }}</p>
+  <p><strong>Permis :</strong> {{ persoInfo.permis }}</p>
+  <p><strong>Téléphone :</strong> {{ persoInfo.numTel }}</p>
+</div>

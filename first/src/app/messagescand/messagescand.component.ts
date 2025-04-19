@@ -13,6 +13,25 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   templateUrl: './messagescand.component.html',
   styleUrl: './messagescand.component.css'
 })
-export class MessagescandComponent {
+export class MessagescandComponent implements OnInit {
+  messages: any[] = [];
+  idCandidat: number = 0;
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    const storedId = localStorage.getItem('userId');
+    if (storedId) {
+      this.idCandidat = +storedId;
+      this.chargerMessages();
+    } else {
+      console.warn("Aucun ID de candidat trouvé dans le localStorage !");
+    }
+  }
+
+  chargerMessages() {
+    this.http.get<any[]>(`http://localhost:5000/api/messages-candidat/${this.idCandidat}`).subscribe(data => {
+      this.messages = data;
+    });
+  }
 }

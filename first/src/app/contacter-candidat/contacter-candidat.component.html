@@ -1,0 +1,38 @@
+
+<div class="menu-bar">
+    <a [routerLink]="['/profil-recruteur', userId]" routerLinkActive="active">
+      Mon Profil
+    </a>
+  
+  <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+  <a [routerLink]="'/gerer-offre'"routerLinkActive="active">Gérer mes offres</a>
+  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+  </div>
+  
+<h2>Détails du candidat</h2>
+
+<p><strong>Nom :</strong> {{ candidat?.prenomCand }} {{ candidat?.nomCand }}</p>
+<p><strong>Email :</strong> {{ candidat?.emailCand }}</p>
+
+<hr>
+<h3>Informations personnelles</h3>
+<p><strong>Naissance :</strong> {{ infoPerso?.dateNaiss }}</p>
+<p><strong>Ville :</strong> {{ infoPerso?.ville }}</p>
+<p><strong>Téléphone :</strong> {{ infoPerso?.numTel }}</p>
+
+<hr>
+<h3>Informations professionnelles</h3>
+<p><strong>Diplôme :</strong> {{ infoPro?.diplomeObtenu }}</p>
+<p><strong>Compétences :</strong> {{ infoPro?.competences }}</p>
+<p><strong>CV :</strong> 
+  <a *ngIf="infoPro?.url_cv" [href]="infoPro.url_cv" target="_blank">Voir le CV</a>
+</p>
+
+<hr>
+<h3>Envoyer un message</h3>
+<form (ngSubmit)="envoyerMessage()">
+  <textarea [(ngModel)]="message" name="message" rows="4" placeholder="Votre message ici..."></textarea>
+  <br>
+  <button type="submit">Envoyer</button>
+</form>

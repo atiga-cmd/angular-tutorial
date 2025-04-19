@@ -1,0 +1,19 @@
+<!-- recherche-offres.component.html -->
+<div class="search-form">
+  <input [(ngModel)]="motCle" placeholder="Mot-clé (compétence, poste...)" />
+  <input [(ngModel)]="local" placeholder="Localisation" />
+  <button (click)="rechercher()">Rechercher</button>
+</div>
+
+<div *ngIf="offres.length === 0">
+  Aucune offre trouvée.
+</div>
+
+<div *ngFor="let offre of offres" class="offre-card">
+  <h3>{{ offre.typePoste }} chez {{ offre.nomESE }}</h3>
+  <p><strong>Localisation :</strong> {{ offre.local }}</p>
+  <p><strong>Compétences :</strong> {{ offre.competences }}</p>
+  <p><strong>Missions :</strong> {{ offre.missions }}</p>
+  <p><strong>Salaire :</strong> {{ offre.salaire }} DT</p>
+  <button (click)="postuler(offre)">Postuler</button>
+</div>

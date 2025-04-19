@@ -1,26 +1,36 @@
 <div class="container">
-   <nav class="sidebar">
+  <!-- Sidebar -->
+  <nav class="sidebar">
     <ul>
-        <li><a routerLink="/profil">Mon Profil</a></li>
-        <li><a routerLink="/candidatures" routerLinkActive="active">Mes Candidatures</a></li>
-        <li><a routerLink="/messagescand">Gérer Messages</a></li>
-       
+      <li><a routerLink="/profil">👤 Mon Profil</a></li>
+      <li><a routerLink="/candidatures" routerLinkActive="active">📄 Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand">✉️ Mes Messages</a></li>
+      <li><a routerLink="/deconnexion">🔑 Déconnexion</a></li>
 
     </ul>
-</nav>
+  </nav>
 
-<div *ngIf="candidatures.length > 0">
-    <h3>Mes candidatures</h3>
-    <ul>
-      <li *ngFor="let candidature of candidatures">
-        <p>Nom de l'offre: {{ candidature.nomESE }}</p>
-        <p>Date de candidature: {{ candidature.date }}</p>
-        <button (click)="deleteCandidature(candidature.id_candidature)" class="btn">Supprimer</button>
+  <!-- Contenu principal -->
+  <div class="content">
+    <h2>📋 Mes candidatures</h2>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="!errorMessage && candidatures.length === 0">
+      Vous n'avez pas encore postulé à des offres.
+    </p>
+
+    <ul *ngIf="candidatures.length > 0" class="candidature-list">
+      <li *ngFor="let c of candidatures" class="card">
+        <h3>{{ c.nomESE }} - {{ c.typePoste }}</h3>
+        <p><strong>📍 Localisation :</strong> {{ c.local }}</p>
+        <p><strong>🏢 Domaine :</strong> {{ c.domaine }}</p>
+        <p><strong>🧠 Compétences :</strong> {{ c.competences }}</p>
+        <p><strong>📅 Date :</strong> {{ c.date | date:'medium' }}</p>
+
+        <button (click)="annulerCandidature(c.id_candidature)" class="btn-annuler">
+          ❌ Annuler la candidature
+        </button>
       </li>
     </ul>
   </div>
-  
-  <div *ngIf="candidatures.length === 0">
-    <p>Vous n'avez pas encore postulé à des offres.</p>
-  </div>
-  
+</div>

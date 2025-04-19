@@ -13,38 +13,49 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrls: ['./candidature.component.css']
 })
 export class CandidatureComponent implements OnInit {
+///////////////////
 
   candidatures: any[] = [];
-  id_candidat: number = 1;
+  userId: number = 0;
+  errorMessage = '';
 
-  constructor(private candidatureService: CandidatureService) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.loadCandidatures();
+    const id = localStorage.getItem('userId');
+    if (id) {
+      this.userId = Number(id);
+      this.chargerCandidatures();
+    } else {
+      this.errorMessage = 'Utilisateur non identifié. Veuillez vous reconnecter.';
+    }
   }
 
-  loadCandidatures() {
-    this.candidatureService.getCandidaturesByCandidat(this.id_candidat)
-      .subscribe(
-        (data) => {
-          this.candidatures = data;
-        },
-        (error) => {
-          console.error('Error retrieving candidatures:', error);
+  chargerCandidatures(): void {
+    this.http.get<any[]>(`http://localhost:5000/api/candidatures/${this.userId}`)
+      .subscribe({
+        next: (data) => this.candidatures = data,
+        error: (err) => {
+          console.error('❌ Erreur récupération candidatures :', err);
+          this.errorMessage = 'Impossible de charger vos candidatures.';
         }
-      );
+      });
   }
-
-  deleteCandidature(id_candidature: number) {
-    this.candidatureService.deleteCandidature(id_candidature)
-      .subscribe(
-        (response) => {
-          console.log('Candidature successfully deleted');
-          this.loadCandidatures();
-        },
-        (error) => {
-          console.error('Error deleting candidature:', error);
-        }
-      );
+  annulerCandidature(id: number): void {
+    const confirmation = confirm("Êtes-vous sûr de vouloir annuler cette candidature ?");
+    if (confirmation) {
+      this.http.delete(`http://localhost:5000/api/candidatures/${id}`)
+        .subscribe({
+          next: () => {
+            alert("❌ Candidature annulée !");
+            this.candidatures = this.candidatures.filter(c => c.id_candidature !== id);
+          },
+          error: (err) => {
+            console.error("Erreur lors de l'annulation :", err);
+            alert("Erreur lors de l'annulation de la candidature.");
+          }
+        });
+    }
   }
+  
 }

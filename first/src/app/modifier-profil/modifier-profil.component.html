@@ -1,169 +1,145 @@
-<p>modifier-profil works!</p>
-
 <div class="container">
     <nav class="sidebar">
-        <ul>
-            <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
-            <li><a routerLink="/candidatures">Mes Candidatures</a></li>
-            <li><a routerLink="/messagescand">Mes Messages</a></li>
-           
-
-        </ul>
+      <ul>
+        <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
+        <li><a routerLink="/candidatures">Mes Candidatures</a></li>
+        <li><a routerLink="/messagescand">Mes Messages</a></li>
+      </ul>
     </nav>
-
-
-
+  
     <main class="content">
-                    
-
-        <div class="form-container">
-            <h2>Votre Profil </h2>
-          
-          <form id="profileForm">
+      <div class="form-container">
+        <h2>Modifier mon profil</h2>
   
-              <!-- 1ère section : Informations de base -->
-              <div class="section">
-                  <label for="nom">Nom:</label>
-                  <input type="text" id="nom" name="nom" value="Dupont" required>
+        <!-- Formulaire de mise à jour du profil -->
+        <form (ngSubmit)="onSubmit()" #profilForm="ngForm">
+          <!-- Informations de base -->
+          <div class="section">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nomCand" [(ngModel)]="profil.nomCand" required>
   
-                  <label for="prenom">Prénom:</label>
-                  <input type="text" id="prenom" name="prenom" value="Jean" required>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenomCand" [(ngModel)]="profil.prenomCand" required>
   
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" value="jean.dupont@example.com" required>
-              </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="emailCand" [(ngModel)]="profil.emailCand" required>
+          </div>
   
-            
+          <!-- Informations personnelles -->
+          <fieldset class="section">
+            <legend>Informations Personnelles</legend>
   
-              <!-- 3ème section : Informations personnelles -->
-              <div class="section">
-                  <fieldset>
-                      <legend>Informations Personnelles</legend>
-                      <label for="date_naissance">Date de naissance:</label>
-                      <input type="date" id="date_naissance" name="date_naissance" value="1990-01-01" required>
+            <label for="date_naissance">Date de naissance:</label>
+            <input type="date" id="date_naissance" name="dateNaiss" [(ngModel)]="profil.dateNaiss" required>
   
-                      <label for="etat_civil">État civil:</label>
-                      <select id="etat_civil" name="etat_civil" required>
-                          <option value="celibataire">Célibataire</option>
-                          <option value="marie">Marié</option>
-                          <option value="divorce">Divorcé</option>
-                          <option value="veuf">Veuf</option>
-                      </select>
+            <label for="etat_civil">État civil:</label>
+            <select id="etat_civil" name="etat_civil" [(ngModel)]="profil.etat_civil" required>
+              <option value="celibataire">Célibataire</option>
+              <option value="marie">Marié</option>
+              <option value="divorce">Divorcé</option>
+              <option value="veuf">Veuf</option>
+            </select>
   
-                      <label for="sexe">Sexe:</label>
-                      <select id="sexe" name="sexe" required>
-                          <option value="masculin">Masculin</option>
-                          <option value="feminin">Féminin</option>
-                          <option value="autre">Autre</option>
-                      </select>
+            <label for="sexe">Sexe:</label>
+            <select id="sexe" name="sexe" [(ngModel)]="profil.sexe" required>
+              <option value="masculin">Masculin</option>
+              <option value="feminin">Féminin</option>
+              <option value="autre">Autre</option>
+            </select>
   
-                      <label for="ville">Ville:</label>
-                      <input type="text" id="ville" name="ville" value="Paris" required>
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville" name="ville" [(ngModel)]="profil.ville" required>
   
-                      <label for="code_postal">Code postal:</label>
-                      <input type="text" id="code_postal" name="code_postal" value="75000" required>
+            <label for="code_postal">Code postal:</label>
+            <input type="text" id="code_postal" name="codePostal" [(ngModel)]="profil.codePostal" required>
   
-                      <label for="telephone">Numéro de téléphone:</label>
-                      <input type="tel" id="telephone" name="telephone" value="+33 6 12 34 56 78" required>
+            <label for="telephone">Téléphone:</label>
+            <input type="tel" id="telephone" name="numTel" [(ngModel)]="profil.numTel" required>
   
-                      <label for="permis">Permis de conduire:</label>
-                      <select id="permis" name="permis" required>
-                          <option value="oui">Oui</option>
-                          <option value="non">Non</option>
-                      </select>
+            <label for="permis">Permis de conduire:</label>
+            <select id="permis" name="permis" [(ngModel)]="profil.permis" required>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+          </fieldset>
   
-                      <label for="photo">Photo:</label>
-                      <input type="file" id="photo" name="photo" accept="image/*">
-                  </fieldset>
-              </div>
+          <!-- Informations professionnelles -->
+          <fieldset class="section">
+            <legend>Informations Professionnelles</legend>
   
-              <!-- 4ème section : Informations professionnelles -->
-              <div class="section">
-                  <fieldset>
-                      <legend>Informations Professionnelles</legend>
-                      <label for="niveau_education">Niveau d'éducation:</label>
-                      <select id="niveau_education" name="niveau_education" required>
-                          <option value="bac">Baccalauréat</option>
-                          <option value="bac+2">Bac+2</option>
-                          <option value="bac+3">Bac+3</option>
-                          <option value="bac+5">Bac+5</option>
-                          <option value="autre">Autre</option>
-                      </select>
+            <label for="niveau_education">Niveau d'éducation:</label>
+            <select id="niveau_education" name="niveauEducation" [(ngModel)]="profil.niveauEducation" required>
+              <option value="bac">Baccalauréat</option>
+              <option value="bac+2">Bac+2</option>
+              <option value="bac+3">Bac+3</option>
+              <option value="bac+5">Bac+5</option>
+              <option value="autre">Autre</option>
+            </select>
   
-                      <label for="diplome">Diplôme obtenu:</label>
-                      <input type="text" id="diplome" name="diplome" value="Licence en Informatique" required>
+            <label for="diplome">Diplôme obtenu:</label>
+            <input type="text" id="diplome" name="diplomeObtenu" [(ngModel)]="profil.diplomeObtenu" required>
   
-                      <label for="etablissement">Établissement:</label>
-                      <input type="text" id="etablissement" name="etablissement" value="Université de Paris" required>
+            <label for="etablissement">Établissement:</label>
+            <input type="text" id="etablissement" name="etablissement" [(ngModel)]="profil.etablissement" required>
   
-                      <label for="experience">Expérience professionnelle:</label>
-                      <textarea id="experience" name="experience" rows="4" required>Développeur web chez XYZ</textarea>
+            <label for="experience">Expérience professionnelle:</label>
+            <textarea id="experience" name="niveauExperience" rows="4" [(ngModel)]="profil.niveauExperience" required></textarea>
   
-                      <label for="statut_actuel">Statut actuel:</label>
-                      <select id="statut_actuel" name="statut_actuel" required>
-                          <option value="chercheur">Chercheur d'emploi</option>
-                          <option value="actif">Actif</option>
-                          <option value="en_conges">En congés</option>
-                      </select>
+            <label for="statut_actuel">Statut actuel:</label>
+            <select id="statut_actuel" name="statutActuel" [(ngModel)]="profil.statutActuel" required>
+              <option value="chercheur">Chercheur d'emploi</option>
+              <option value="actif">Actif</option>
+              <option value="en_conges">En congés</option>
+            </select>
   
-                      <label for="langue">Langues parlées:</label>
-                      <input type="text" id="langue" name="langue" value="Français, Anglais" required>
+            <label for="langue">Langues parlées:</label>
+            <input type="text" id="langue" name="langues" [(ngModel)]="profil.langues" required>
   
-                      <label for="competence">Compétences:</label>
-                      <input type="text" id="competence" name="competence" value="Développement web, PHP, JavaScript" required>
+            <label for="competence">Compétences:</label>
+            <input type="text" id="competence" name="competences" [(ngModel)]="profil.competences" required>
   
-                      <label for="post_deseire">Poste désiré:</label>
-                      <input type="text" id="post_deseire" name="post_deseire" value="Développeur front-end" required>
+            <label for="poste_desire">Poste désiré:</label>
+            <input type="text" id="poste_desire" name="posteDesire" [(ngModel)]="profil.posteDesire" required>
   
-                      <label for="lieu_travail">Lieu de travail souhaité:</label>
-                      <input type="text" id="lieu_travail" name="lieu_travail" value="Paris" required>
+            <label for="lieu_travail">Lieu de travail souhaité:</label>
+            <input type="text" id="lieu_travail" name="lieuTravailSouhaite" [(ngModel)]="profil.lieuTravailSouhaite" required>
+          </fieldset>
   
-                      <label for="cv">CV:</label>
-                      <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx" required>
-                  </fieldset>
-              </div>
-               <!-- Boutons de mise à jour  -->
-               <div class="actions">
-                  <button type="submit">Mettre à jour le profil</button>
-                  <button type="reset">Annuler</button>
+          <!-- Boutons d'action -->
+          <div class="actions">
+            <button type="submit">Mettre à jour</button>
+            <button type="reset">Annuler</button>
+          </div>
+        </form>
   
-              </div>
-
-
-
-
-
-
-<!-- 2ème section : Mot de passe -->
-<div class="section">
-        
-<label for="password"> Ancien mot de passe:</label>
-<input type="password" id="password" name="password" value="******" required>
-
-<label for="old-password"> Mot de passe :</label>
-<input type="password" id="old-password" name="old-password" required>
-
-<label for="confirm_password">Confirmer mot de passe:</label>
-<input type="password" id="confirm_password" name="confirm_password" required>
-<div class="actions">
-    <button type="button">Modifier mot de passe</button>
-    <button type="button">Mot de passe oublié</button>
-</div>
-</div>
-       
-             <!-- Boutons  suppression -->
-      <div class="account-delete-section">
-        <h2>Supprimer le compte</h2>
-        <p>Cette action supprimera définitivement votre compte. Êtes-vous sûr(e) de vouloir continuer ?</p>
-        <button class="delete-account-btn">Supprimer le compte</button>
+        <!-- Changement de mot de passe -->
+        <div class="section">
+          <h3>Changer le mot de passe</h3>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+      
+          <label for="old-password">Ancien mot de passe:</label>
+          <input type="password" id="old-password" [(ngModel)]="oldPassword" name="oldPassword" required>
+  
+          <label for="new-password">Nouveau mot de passe:</label>
+          <input type="password" id="new-password" [(ngModel)]="newPassword" name="newPassword" required>
+  
+          <label for="confirm-password">Confirmer le mot de passe:</label>
+          <input type="password" id="confirm-password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+  
+          <div class="actions">
+            <button type="button" (click)="onChangePassword()">Modifier mot de passe</button>
+          </div>
+        </div>
+  
+        <!-- Suppression de compte -->
+        <div class="account-delete-section">
+          <h3>Supprimer le compte</h3>
+          <p>Cette action supprimera définitivement votre compte. Êtes-vous sûr(e) ?</p>
+          <button class="delete-account-btn" (click)="onDeleteAccount()">Supprimer le compte</button>
+        </div>
       </div>
-    </form>
-</div>
-
-
-
-
-
-        
     </main>
-</div>
+  </div>
+  

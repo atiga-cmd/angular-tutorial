@@ -23,9 +23,11 @@ import { ModifierProfilRecComponent } from './modifier-profil-rec/modifier-profi
 import { ModifierOffreComponent } from "./modifier-offre/modifier-offre.component";
 import { GererOffreComponent } from './gerer-offre/gerer-offre.component';
 import { CandidatureRECUComponent } from './candidature-recu/candidature-recu.component';
-
-
-
+import { RechercheCandidatComponent } from './recherche-candidat/recherche-candidat.component';
+import { RechercheOffresComponent } from './recherche-offre/recherche-offre.component';
+import{ProfilProComponent}from './profil-pro/profil-pro.component';
+import{ProfilPersoComponent}from './profil-perso/profil-perso.component';
+import{LesCandidatureComponent}from './les-candidature/les-candidature.component';
 
 
 
@@ -53,12 +55,9 @@ export const routes: Routes = [
     { path: 'modifier-offre', component:ModifierOffreComponent  },  // 
     { path: 'candidature-recu', component:CandidatureRECUComponent  },  // 
     { path: 'gerer-offre', component:GererOffreComponent  },  // 
-
-
-
-
-
-
+    { path: 'modifier-profil-rec/:id', component: ModifierProfilRecComponent },  // Route avec paramètre pour ID
+    { path: 'recherche-candidats', component:RechercheCandidatComponent  },  // 
+    { path: 'recherche-offre', component: RechercheOffresComponent },  // Route pour "Offres d'emploi"
     { path: 'offres', component: OffresComponent },  // Route pour "Offres d'emploi"
     { path: 'entreprises', component: EntreprisesComponent },  // Route pour "Entreprises"
     { path: 'candidat', component: CandidatComponent },  // Route pour "Candidat"
@@ -66,6 +65,27 @@ export const routes: Routes = [
     { path: 'inscription', component: InscriptionComponent },
     { path: 'inscri-rec', component: InscriRecComponent },
     { path: 'inscri-candidat', component: InscriptionCandidatComponent },
+    { path: 'profil-pro', component: ProfilProComponent },
+    { path: 'profil-per', component: ProfilPersoComponent },
+    { path: 'modifier-offre/:id', component: ModifierOffreComponent },
+    { path: 'les-candidatures', component: LesCandidatureComponent },
+
+
+
+  
+    {
+      path: 'deconnexion',
+      loadComponent: () => import('./deconnexion/deconnexion.component').then(m => m.DeconnexionComponent)
+    },
+    {
+      path: 'deconnexion-rec',
+      loadComponent: () => import('./deconnexion-rec/deconnexion-rec.component').then(m => m.DeconnexionComponent)
+    },
+    {
+      path: 'contacter-candidat/:id',
+      loadComponent: () => import('./contacter-candidat/contacter-candidat.component').then(m => m.ContacterCandidatComponent)
+    },
+    
     { path: '**', component: ErrorComponent }  // Wildcard route for a 404 page or default route
 
  //  { path: '', component: HomeComponent }, // Route par défaut

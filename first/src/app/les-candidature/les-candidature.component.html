@@ -1,0 +1,16 @@
+<h2>Candidatures reçues</h2>
+
+<div *ngIf="candidatures.length === 0">
+  Aucune candidature trouvée.
+</div>
+
+<div *ngFor="let c of candidatures" class="card">
+  <p><strong>Nom :</strong> {{ c.nomCand }} {{ c.prenomCand }}</p>
+  <p><strong>Email :</strong> {{ c.emailCand }}</p>
+  <p><strong>Offre :</strong> {{ c.titre_offre }} - {{ c.domaine }}</p>
+  <p><strong>Localisation :</strong> {{ c.local }}</p>
+  <p><strong>Date :</strong> {{ c.date_postulation | date }}</p>
+  <p><strong>Ville :</strong> {{ c.ville || 'Non renseigné' }}</p>
+  <p><strong>Téléphone :</strong> {{ c.numTel || 'Non renseigné' }}</p>
+  <p><strong>Sexe :</strong> {{ c.sexe || 'Non renseigné' }}</p>
+</div>

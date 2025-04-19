@@ -1,4 +1,4 @@
-
+/*
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // ✅ Importer CommonModule
 import { FormsModule } from '@angular/forms'; // ✅ Importer FormsModule
@@ -29,11 +29,13 @@ export class Compo2Component {
         if (response.type === 'candidat') {
           this.router.navigate(['/profil', response.id]);
           localStorage.setItem('userId',response.id); 
+          
           // Redirection candidat
         } else if (response.type === 'recruteur') {
           localStorage.setItem('userId',response.id);
           this.router.navigate(['/profil-recruteur', response.id]); // Redirection recruteur
         }
+        
       },
       error: (error) => {
         if (error.status === 401) {
@@ -51,15 +53,13 @@ export class Compo2Component {
 
 }
 
-
-/*
-
+*/
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service'; // ✅ Importer le service
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-compo2',
   standalone: true,
@@ -72,23 +72,33 @@ export class Compo2Component {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login() {
-    this.authService.login(this.email, this.password).subscribe({
+    const userData = { email: this.email, password: this.password };
+
+    this.http.post<any>('http://localhost:5000/api/auth', userData).subscribe({
       next: (response) => {
-        console.log('✅ Login successful:', response);
+        console.log('Login successful:', response);
+
+        localStorage.setItem('userId', response.id);
+
         if (response.type === 'candidat') {
-          this.router.navigate(['/profil', response.id]);
+          this.router.navigate(['/profil', response.id]); // ✅ Redirection candidat
         } else if (response.type === 'recruteur') {
-          this.router.navigate(['/profil-recruteur', response.id]);
+          this.router.navigate(['/profil-recruteur', response.id]); // ✅ Redirection recruteur
+        } else if (response.type === 'admin') {
+          this.router.navigate(['/admin', response.id]); // ✅ Redirection admin
         }
       },
       error: (error) => {
-        this.errorMessage = error.status === 401 ? 'Email ou mot de passe incorrect.' : error.error.message || 'Erreur lors de la connexion.';
-        console.error('❌ Erreur de connexion:', error);
+        if (error.status === 401) {
+          this.errorMessage = 'Email ou mot de passe incorrect.';
+        } else {
+          this.errorMessage = error.error.message || 'Erreur lors de la connexion.';
+        }
+        console.error('Erreur de connexion:', error);
       }
     });
   }
 }
-*/

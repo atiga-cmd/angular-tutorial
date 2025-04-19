@@ -1,0 +1,14 @@
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="proInfo">
+  <h2>Informations Professionnelles</h2>
+  <p><strong>Niveau d’éducation :</strong> {{ proInfo.niveauEducation }}</p>
+  <p><strong>Diplôme obtenu :</strong> {{ proInfo.diplomeObtenu }}</p>
+  <p><strong>Établissement :</strong> {{ proInfo.etablissement }}</p>
+  <p><strong>Expérience :</strong> {{ proInfo.niveauExperience }}</p>
+  <p><strong>Statut actuel :</strong> {{ proInfo.statutActuel }}</p>
+  <p><strong>Compétences :</strong> {{ proInfo.competences }}</p>
+  <p><strong>Langues :</strong> {{ proInfo.langues }}</p>
+  <p><strong>Poste désiré :</strong> {{ proInfo.posteDesire }}</p>
+  <p><strong>Lieu souhaité :</strong> {{ proInfo.lieuTravailSouhaite }}</p>
+  <a [href]="proInfo.url_cv" target="_blank">📄 Voir le CV</a>
+</div>

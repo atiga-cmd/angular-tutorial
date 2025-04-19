@@ -1,3 +1,23 @@
 postman
 http://localhost:5000/api/recruteur/5
 http://localhost:5000/api/candidats/email/test@example.com
+
+// ✅ Récupérer un recruteur par ID
+/*
+app.get('/api/recruteur/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const [rows] = await db.query('SELECT * FROM Recruteur WHERE id_rec = ?', [id]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Recruteur non trouvé' });
+        }
+
+        res.json(rows[0]); 
+
+    } catch (error) {
+        console.error('❌ Erreur serveur:', error);
+        res.status(500).json({ message: 'Erreur serveur' });
+    }
+});*/
