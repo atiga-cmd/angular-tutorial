@@ -18,11 +18,14 @@
     
       <div *ngIf="offres.length > 0; else noOffre">
         <div *ngFor="let offre of offres" class="offre-card">
-          <h3>{{ offre.typePoste }}</h3>
-          <p><strong>Entreprise :</strong> {{ offre.nomESE }}</p>
-          <p><strong>Localisation :</strong> {{ offre.local }}</p>
-          <p><strong>Domaine :</strong> {{ offre.domaine }}</p>
-          <p><strong>Compétences :</strong> {{ offre.competences }}</p>
+          <h3>💼 {{ offre.typePoste }}</h3>
+          <p><strong>🏢Entreprise :</strong> {{ offre.nomESE }}</p>
+          <p><strong>📍Localisation :</strong> {{ offre.local }}</p>
+          <p><strong>📚Domaine :</strong> {{ offre.domaine }}</p>
+          <p><strong>🧠Compétences :</strong> {{ offre.competences }}</p>
+          <p><strong>🕒 Date de publication :</strong> {{ offre.date_publication | date }}</p>
+          <p><strong>💶 Salaire :</strong> {{ offre.salaire }} TND</p>
+          <p><strong>📝 Description :</strong> {{ offre.description }}</p> 
           <button class="btn-modifier" [routerLink]="['/modifier-offre', offre.id_offre]">Modifier</button>
           <button (click)="supprimerOffre(offre.id_offre)">Supprimer</button>
         </div>

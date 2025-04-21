@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../services/user.service';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-profil-perso',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
 
   templateUrl: './profil-perso.component.html',
   styleUrls: ['./profil-perso.component.css']

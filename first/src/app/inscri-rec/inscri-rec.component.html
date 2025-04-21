@@ -13,11 +13,21 @@
         <input type="text" id="prenomRec" [(ngModel)]="recruteur.prenomRec" name="prenomRec" required class="form-control">
       </div>
   
+
       <div class="form-group">
         <label for="emailRec">Email</label>
-        <input type="email" id="emailRec" [(ngModel)]="recruteur.emailRec" name="emailRec" required class="form-control">
+        <input 
+          type="email"
+          id="emailRec"
+          [(ngModel)]="recruteur.emailRec"
+          name="emailRec"
+          required
+          email
+          class="form-control"
+          #emailRec="ngModel"
+        >
+       
       </div>
-  
       <div class="form-group">
         <label for="motPasse_rec">Mot de passe</label>
         <input type="password" id="motPasse_rec" [(ngModel)]="recruteur.motPasse_rec" name="motPasse_rec" required class="form-control">

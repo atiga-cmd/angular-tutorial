@@ -1,6 +1,22 @@
-<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div class="container">
+  <nav class="sidebar">
+    <ul>
+      <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
+      <li><a routerLink="/candidatures">Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand">Gérer Messages</a></li>
+      <li><a routerLink="/recherche-offre">🔍Recherche Offre</a></li>
+      <li><a routerLink="/deconnexion">🔑 Déconnexion</a></li>
+
+    </ul>
+  </nav>
+
+  <main class="content">
+    <h2>Informations Personnelles</h2>
+    <div class="profile-card">
+      <img src="img1.jpeg" alt="Photo de profil" class="profile-pic" />
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
 <div *ngIf="persoInfo">
-  <h2>Informations Personnelles</h2>
+ 
   <p><strong>Date de naissance :</strong> {{ persoInfo.dateNaiss | date }}</p>
   <p><strong>Sexe :</strong> {{ persoInfo.sexe }}</p>
   <p><strong>État civil :</strong> {{ persoInfo.etat_civil }}</p>
@@ -8,4 +24,10 @@
   <p><strong>Code postal :</strong> {{ persoInfo.codePostal }}</p>
   <p><strong>Permis :</strong> {{ persoInfo.permis }}</p>
   <p><strong>Téléphone :</strong> {{ persoInfo.numTel }}</p>
+  <div class="btn-group">
+    <a routerLink="/profil-pro" class="btn blue">Profil Professionnel</a>
+    <a routerLink="/modifier-profil" class="btn orange">Modifier</a>
+  </div>
 </div>
+</div>
+</main></div>

@@ -1,6 +1,23 @@
+<div class="container">
+  <nav class="sidebar">
+    <ul>
+      <li><a routerLink="/profil" routerLinkActive="active">Mon Profil</a></li>
+      <li><a routerLink="/candidatures">Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand">Gérer Messages</a></li>
+      <li><a routerLink="/recherche-offre">🔍Recherche Offre</a></li>
+      <li><a routerLink="/deconnexion">🔑 Déconnexion</a></li>
+
+    </ul>
+  </nav>
+
+  <main class="content">
+    <h2>Informations Professionnelles</h2>
+  <div class="profile-card">
+    <img src="img1.jpeg" alt="Photo de profil" class="profile-pic" />
 <div *ngIf="errorMessage">{{ errorMessage }}</div>
 <div *ngIf="proInfo">
-  <h2>Informations Professionnelles</h2>
+  
+
   <p><strong>Niveau d’éducation :</strong> {{ proInfo.niveauEducation }}</p>
   <p><strong>Diplôme obtenu :</strong> {{ proInfo.diplomeObtenu }}</p>
   <p><strong>Établissement :</strong> {{ proInfo.etablissement }}</p>
@@ -11,4 +28,9 @@
   <p><strong>Poste désiré :</strong> {{ proInfo.posteDesire }}</p>
   <p><strong>Lieu souhaité :</strong> {{ proInfo.lieuTravailSouhaite }}</p>
   <a [href]="proInfo.url_cv" target="_blank">📄 Voir le CV</a>
-</div>
+  <div class="btn-group">
+    <a routerLink="/profil-per" class="btn blue">Profil Personnel</a>
+    <a routerLink="/modifier-profil" class="btn orange">Modifier</a>
+  </div>
+</div></div>
+</main></div>

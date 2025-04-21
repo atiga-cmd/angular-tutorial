@@ -24,6 +24,7 @@ app.use(express.json());
 app.use('/api', offreRoutes); // Routes liées aux offres
 
 // ✅ Inscription recruteur
+/*
 app.post('/api/recruteurs', async (req, res) => {
     const { nomRec, prenomRec, emailRec, motPasse_rec, poste, entreprise } = req.body;
 
@@ -52,7 +53,37 @@ app.post('/api/recruteurs', async (req, res) => {
         res.status(500).json({ message: 'Erreur interne du serveur' });
     }
 });
+*/
+app.post('/api/recruteurs', async (req, res) => {
+  const { nomRec, prenomRec, emailRec, motPasse_rec, poste, entreprise } = req.body;
 
+  if (!nomRec || !prenomRec || !emailRec || !motPasse_rec || !poste || !entreprise) {
+    return res.status(400).json({ message: 'Tous les champs sont requis.' });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailRec)) {
+    return res.status(400).json({ message: 'Le format de l’e-mail est invalide.' });
+  }
+
+  try {
+    const [exists] = await db.query('SELECT * FROM Recruteur WHERE emailRec = ?', [emailRec]);
+    if (exists.length > 0) {
+      return res.status(400).json({ message: 'Cet email est déjà utilisé.' });
+    }
+
+    await db.query(
+      'INSERT INTO Recruteur (nomRec, prenomRec, emailRec, motPasse_rec, poste, entreprise) VALUES (?, ?, ?, ?, ?, ?)', 
+      [nomRec, prenomRec, emailRec, motPasse_rec, poste, entreprise]
+    );
+
+    res.status(201).json({ message: 'Recruteur ajouté avec succès.' });
+  } catch (error) {
+    console.error('❌ Erreur serveur:', error);
+    res.status(500).json({ message: 'Erreur interne du serveur.' });
+  }
+});
+/*
 // ✅ Inscription candidat
 app.post('/api/candidats', async (req, res) => {
     const { nomCand, prenomCand, emailCand, motPasse_cand, confirmer_motdepasse } = req.body;
@@ -88,7 +119,50 @@ app.post('/api/candidats', async (req, res) => {
         console.error('❌ Erreur serveur:', error);
         res.status(500).json({ message: 'Erreur interne du serveur' });
     }
+});*/
+// ✅ Inscription candidat avec validation du format email
+app.post('/api/candidats', async (req, res) => {
+  const { nomCand, prenomCand, emailCand, motPasse_cand, confirmer_motdepasse } = req.body;
+
+  if (!nomCand || !prenomCand || !emailCand || !motPasse_cand || !confirmer_motdepasse) {
+      return res.status(400).json({ message: 'Tous les champs sont obligatoires.' });
+  }
+
+  // Vérification du format de l'email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailCand)) {
+      return res.status(400).json({ message: 'Le format de l’e-mail est invalide.' });
+  }
+
+  if (motPasse_cand !== confirmer_motdepasse) {
+      return res.status(400).json({ message: 'Les mots de passe ne correspondent pas.' });
+  }
+
+  try {
+      const [exists] = await db.query('SELECT * FROM Candidat WHERE emailCand = ?', [emailCand]);
+
+      if (exists.length > 0) {
+          return res.status(400).json({ message: 'Cet email est déjà utilisé.' });
+      }
+
+      const [result] = await db.query(
+          'INSERT INTO Candidat (nomCand, prenomCand, emailCand, motPasse_cand) VALUES (?, ?, ?, ?)', 
+          [nomCand, prenomCand, emailCand, motPasse_cand]
+      );
+
+      console.log('Résultat de l’insertion :', result);
+
+      res.status(201).json({ 
+          message: 'Candidat ajouté avec succès',
+          id_candidat: result.insertId
+      });
+
+  } catch (error) {
+      console.error('❌ Erreur serveur:', error);
+      res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
 });
+
 
 // ✅ Authentification
 app.post('/api/auth', async (req, res) => {

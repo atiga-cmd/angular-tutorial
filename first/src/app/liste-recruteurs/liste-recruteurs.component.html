@@ -14,7 +14,10 @@
 <h2>Liste des Recruteurs</h2>
 <ul>
   <li *ngFor="let recruteur of recruteurs">
-    {{ recruteur.nomRec }} {{ recruteur.prenomRec }} - {{ recruteur.emailRec }}
+    <h3>{{ recruteur.nomRec }} {{ recruteur.prenomRec }} </h3>
+   <p> Poste:{{ recruteur.poste }}</p>
+   <p>Entreprise: {{ recruteur.entreprise }}</p>
+   <p>Email: {{ recruteur.emailRec }}</p>
     <button (click)="supprimerRecruteur(recruteur.id_rec)">Supprimer</button>
   </li>
 </ul>

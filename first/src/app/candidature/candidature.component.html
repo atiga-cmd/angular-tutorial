@@ -24,9 +24,8 @@
     <ul *ngIf="candidatures.length > 0" class="candidature-list">
       <li *ngFor="let c of candidatures" class="card">
         <h3>{{ c.nomESE }} - {{ c.typePoste }}</h3>
-        <p><strong>📍 Localisation :</strong> {{ c.local }}</p>
-        <p><strong>🏢 Domaine :</strong> {{ c.domaine }}</p>
-        <p><strong>🧠 Compétences :</strong> {{ c.competences }}</p>
+        <p><strong> Entreprise :</strong>{{ c.nomESE }}</p>
+        <p><strong> Poste :</strong> {{ c.typePoste }}</p>
         <p><strong>📅 Date :</strong> {{ c.date | date:'medium' }}</p>
 
         <button (click)="annulerCandidature(c.id_candidature)" class="btn-annuler">
