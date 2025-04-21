@@ -1,0 +1,164 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e0f7fa;
+  display: flex;
+}
+
+/* Main Content */
+
+.menu-bar {
+  background-color: #b3e5fc;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-bar a {
+  color: #01579b;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-bar a:hover, .menu-bar a.active {
+  background-color: #4fc3f7;
+  color: white;
+}
+.sidebar {
+  background-color: #b3e5fc;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  color: white;
+
+  
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #4fc3f7;
+}
+
+.sidebar ul li a {
+  color: #01579b;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+
+}
+/* Contenu principal */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Bloc contact */
+  .cantacter-container {
+    margin-top: 10px;
+  }
+  
+  /* Titres */
+  h2, h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin-top: 25px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+  }
+  
+  /* Infos */
+  p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #444;
+  }
+  
+  strong {
+    color: #2c3e50;
+  }
+  
+  /* Lien vers le CV */
+  a[target="_blank"] {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+  
+  /* Ligne séparatrice */
+  hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+  
+  /* Formulaire de message */
+  form {
+    margin-top: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #27ae60;
+  }

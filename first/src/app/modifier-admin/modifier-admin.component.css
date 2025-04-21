@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,8 +8,7 @@ body {
     display: flex;
   }
   
-  /* Main Content */
-  
+ 
   .menu-bar {
     background-color: #b3e5fc;
     width: 250px;
@@ -35,7 +36,7 @@ body {
     background-color: #4fc3f7;
     color: white;
   }
-  .sidebar {
+.sidebar {
     background-color: #b3e5fc;
     width: 250px;
     height: 100vh;
@@ -48,25 +49,25 @@ body {
     align-items: center;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
     color: white;
-  
+
     
-  }
-  
-  
-  .sidebar ul {
+}
+
+
+.sidebar ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .sidebar ul li {
+}
+
+.sidebar ul li {
     margin: 20px 0;
-  }
-  .sidebar ul li a:hover,
-  .sidebar ul li a.active {
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
     background-color: #4fc3f7;
-  }
-  
-  .sidebar ul li a {
+}
+
+.sidebar ul li a {
     color: #01579b;
     text-decoration: none;
     padding: 15px;
@@ -79,59 +80,12 @@ body {
     padding: 10px;
     border-radius: 5px;
     text-align: left;
-  
-  }
+
+}
+
 /**/
-
-
-  
-h2 {
-    text-align: center;
-    color: #01579b;
-    margin-bottom: 30px;
-  }
-  
-  .offer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .offer {
-    background: #e0f7fa;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .offer h3 {
-    margin: 0 0 10px 0;
-    color: #0288d1;
-  }
-  
-  .offer p {
-    margin: 0 0 15px 0;
-    color: #555;
-  }
-  
-  button {
-    background-color: #0288d1;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #01579b;
-  }
-  
-/* Container */
 .container {
-    margin-left: 270px; /* Positionnement à droite de la sidebar */
+    margin-left: 270px;
     margin-top: 70px;
     width: 70%;
     background-color: #e0f7fa;
@@ -139,30 +93,66 @@ h2 {
     border-radius: 10px;
     box-shadow: 0px 0px 10px gray;
     background-size: cover;
-  }
-  
-  .content h2 {
-    color: #006064;
+}  
+h2 {
     text-align: center;
+    color: #343a40;
     margin-bottom: 30px;
   }
-  /*/
   
-  /* Cartes de candidatures */
-  .card {
-    background-color: #f1f8e9;
-    border: 1px solid #dcedc8;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
   
-  .card p {
-    margin: 6px 0;
-    color: #333;
+  label {
+    font-weight: bold;
+    color: #495057;
   }
   
-  .card p strong {
-    color: #00796b;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .error {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
   }

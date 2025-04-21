@@ -1,12 +1,28 @@
-<!-- recherche-offres.component.html -->
-<div class="search-form">
+<div class="container">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <ul>
+      <li><a routerLink="/profil">👤 Mon Profil</a></li>
+      <li><a routerLink="/candidatures" >📄 Mes Candidatures</a></li>
+      <li><a routerLink="/messagescand">✉️ Mes Messages</a></li>
+      <li><a routerLink="/recherche-offre"routerLinkActive="active">🔍Recherche Offre</a></li>
+      <li><a routerLink="/deconnexion">🔑 Déconnexion</a></li>
+
+    </ul>
+  </nav>
+
+  <!-- Contenu principal -->
+
+<main class="content">
+  <h2>Recherche Offre</h2>
+  <div class="search-form">
   <input [(ngModel)]="motCle" placeholder="Mot-clé (compétence, poste...)" />
   <input [(ngModel)]="local" placeholder="Localisation" />
   <button (click)="rechercher()">Rechercher</button>
 </div>
 
 <div *ngIf="offres.length === 0">
-  Aucune offre trouvée.
+  🔍Aucune offre trouvée.
 </div>
 
 <div *ngFor="let offre of offres" class="offre-card">
@@ -17,3 +33,4 @@
   <p><strong>Salaire :</strong> {{ offre.salaire }} DT</p>
   <button (click)="postuler(offre)">Postuler</button>
 </div>
+</main>

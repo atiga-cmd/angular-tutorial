@@ -1,1 +1,29 @@
-<p>profil-admin works!</p>
+<div class="container">
+    <div class="menu-bar">
+      <a [routerLink]="['/profil-admin', userId]" routerLinkActive="active">Mon Profil</a>
+      <a [routerLink]="['/admin-offre', userId]"> Gerer offres</a>
+      <a [routerLink]="['/voir-recruteur', userId]">Voir Recruteur</a>
+      <a [routerLink]="['/voir-candidat', userId]">Voir Candidat</a>
+      <a [routerLink]="['/moderer-offre', userId]">moderer-offres </a>
+      <a [routerLink]="'/deconnexion-admin'">🔑 Déconnexion </a>
+
+    </div>
+  
+    <main class="content">
+      <h2>Mon Profil</h2>
+  
+      <div class="profile-card" *ngIf="admin">
+        <img src="img1.jpeg" alt="Photo de profil" class="profile-pic" />
+  
+        <div class="profile-info">
+          <p><strong>Nom :</strong> {{ admin.nom_admin }}</p>
+          <p><strong>Prénom :</strong> {{ admin.prenom_admin }}</p>
+          <p><strong>Email :</strong> {{ admin.email_admin }}</p>
+  
+          <!-- Bouton de modification -->
+          <a [routerLink]="['/modifier-profil-admin', userId]" class="btn">Modifier</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  

@@ -10,7 +10,9 @@ import { UserService } from '../services/user.service';
   selector: 'app-contacter-candidat',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './contacter-candidat.component.html'
+  templateUrl: './contacter-candidat.component.html',
+  styleUrl: './contacter-candidat.component.css'
+
 })
 export class ContacterCandidatComponent implements OnInit {
   idCandidat!: number;

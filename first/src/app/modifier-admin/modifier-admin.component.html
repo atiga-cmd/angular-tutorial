@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="menu-bar">
+    <a [routerLink]="['/profil-admin', userId]" routerLinkActive="active">Mon Profil</a>
+    <a [routerLink]="['/admin-offre', userId]"> Gerer offres</a>
+    <a [routerLink]="['/voir-recruteur', userId]">Voir Recruteur</a>
+    <a [routerLink]="['/voir-candidat', userId]">Voir Candidat</a>
+    <a [routerLink]="['/moderer-offre', userId]">moderer-offres </a>
+    <a [routerLink]="'/deconnexion-admin'">🔑 Déconnexion </a>
+
+  </div>
+
+  <main class="content">
+    <h2>Modifier Mon Profil</h2>
+  
+    <form (ngSubmit)="onSubmit()" *ngIf="admin">
+      <label>Nom:</label>
+      <input type="text" [(ngModel)]="admin.nom_admin" name="nom_admin" required />
+  
+      <label>Prénom:</label>
+      <input type="text" [(ngModel)]="admin.prenom_admin" name="prenom_admin" required />
+  
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="admin.email_admin" name="email_admin" required />
+  
+      <label>Ancien mot de passe:</label>
+      <input type="password" [(ngModel)]="oldPassword" name="oldPassword" required />
+  
+      <label>Nouveau mot de passe:</label>
+      <input type="password" [(ngModel)]="newPassword" name="newPassword" required />
+  
+      <label>Confirmer le nouveau mot de passe:</label>
+      <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+  
+      <button type="submit">Enregistrer les modifications</button>
+      <button type="button" (click)="supprimerCompte()" class="delete-btn">🗑 Supprimer le compte</button>
+  
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+  
+  </main></div>

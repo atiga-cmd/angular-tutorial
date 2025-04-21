@@ -1,15 +1,19 @@
 
 <div class="menu-bar">
-    <a [routerLink]="['/profil-recruteur', userId]" routerLinkActive="active">
+    <a [routerLink]="['/profil-recruteur', userId]" >
       Mon Profil
     </a>
   
   <a [routerLink]="'/ajout-offre'">Publier une offre</a>
-  <a [routerLink]="'/gerer-offre'"routerLinkActive="active">Gérer mes offres</a>
-  <a [routerLink]="'/candidature-recu'">Candidatures reçues</a>
+  <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
+  <a [routerLink]="'/les-candidatures'">Candidatures reçues</a>
   <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+  <a routerLink="/deconnexion-rec">🔑 Déconnexion</a>
+
   </div>
-  
+  <main class="content">
+
+    <div class="cantacter-container">
 <h2>Détails du candidat</h2>
 
 <p><strong>Nom :</strong> {{ candidat?.prenomCand }} {{ candidat?.nomCand }}</p>
@@ -36,3 +40,5 @@
   <br>
   <button type="submit">Envoyer</button>
 </form>
+</div>
+</main>

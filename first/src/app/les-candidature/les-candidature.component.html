@@ -1,3 +1,21 @@
+
+
+<div class="container">
+  <div class="menu-bar">
+        <a [routerLink]="['/profil-recruteur', userId]" >
+          Mon Profil
+        </a>
+      
+      <a [routerLink]="'/ajout-offre'">Publier une offre</a>
+      <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
+      <a [routerLink]="'/les-candidatures'"routerLinkActive="active">Candidatures reçues</a>
+      <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
+      <a routerLink="/deconnexion-rec">🔑 Déconnexion</a>
+
+      
+  </div>
+
+  <main class="content">
 <h2>Candidatures reçues</h2>
 
 <div *ngIf="candidatures.length === 0">
@@ -14,3 +32,4 @@
   <p><strong>Téléphone :</strong> {{ c.numTel || 'Non renseigné' }}</p>
   <p><strong>Sexe :</strong> {{ c.sexe || 'Non renseigné' }}</p>
 </div>
+</main></div>

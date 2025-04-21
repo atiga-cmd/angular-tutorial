@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="menu-bar">
+    <a [routerLink]="['/profil-admin', userId]">Mon Profil</a>
+    <a [routerLink]="['/admin-offre', userId]"> Gerer offres</a>
+    <a [routerLink]="['/voir-recruteur', userId]"routerLinkActive="active">Voir Recruteur</a>
+    <a [routerLink]="['/voir-candidat', userId]">Voir Candidat</a>
+    <a [routerLink]="['/moderer-offre', userId]">moderer-offres </a>
+    <a [routerLink]="'/deconnexion-admin'">🔑 Déconnexion </a>
+
+  </div>
+
+
+  <main class="content">
+<h2>Liste des Recruteurs</h2>
+<ul>
+  <li *ngFor="let recruteur of recruteurs">
+    {{ recruteur.nomRec }} {{ recruteur.prenomRec }} - {{ recruteur.emailRec }}
+    <button (click)="supprimerRecruteur(recruteur.id_rec)">Supprimer</button>
+  </li>
+</ul>
+</main>
+</div>

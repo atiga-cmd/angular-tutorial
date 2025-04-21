@@ -5,6 +5,7 @@
       <li><a routerLink="/profil">👤 Mon Profil</a></li>
       <li><a routerLink="/candidatures" routerLinkActive="active">📄 Mes Candidatures</a></li>
       <li><a routerLink="/messagescand">✉️ Mes Messages</a></li>
+      <li><a routerLink="/recherche-offre">🔍Recherche Offre</a></li>
       <li><a routerLink="/deconnexion">🔑 Déconnexion</a></li>
 
     </ul>
@@ -13,6 +14,7 @@
   <!-- Contenu principal -->
   <div class="content">
     <h2>📋 Mes candidatures</h2>
+    <div class="candidature">
 
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     <p *ngIf="!errorMessage && candidatures.length === 0">
@@ -33,4 +35,5 @@
       </li>
     </ul>
   </div>
+</div>
 </div>

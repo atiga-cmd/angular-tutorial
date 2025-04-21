@@ -1,0 +1,114 @@
+/* Conteneur principal */
+.container {
+    margin-left: 270px;
+    margin-top: 70px;
+    width: 70%;
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    background-size: cover;
+  }
+  
+  /* Menu de navigation */
+  .menu-bar {
+    background-color: #b3e5fc;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .menu-bar a {
+    color: #01579b;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu-bar a:hover, .menu-bar a.active {
+    background-color: #4fc3f7;
+    color: white;
+  }
+  
+  /* Style de la liste des candidats */
+  main.content h2 {
+    text-align: center;
+    color: #01579b;
+    margin-bottom: 20px;
+  }
+  
+  .candidat-item {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .candidat-info {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #01579b;
+  }
+  
+  /* Conteneur pour les boutons */
+  .btn-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-view, .btn-delete {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-view {
+    background-color: #0288d1;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .btn-view:hover {
+    background-color: #01579b;
+  }
+  
+  .btn-delete {
+    background-color: #e53935;
+    color: white;
+    border: none;
+  }
+  
+  .btn-delete:hover {
+    background-color: #b71c1c;
+    transform: translateY(-3px);
+  }
+  
+  .btn-view:hover, .btn-delete:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Effets d'animation */
+  .btn-view, .btn-delete {
+    transition: transform 0.3s ease-out;
+  }
+  
+  .btn-view:active, .btn-delete:active {
+    transform: translateY(1px);
+  }
+  

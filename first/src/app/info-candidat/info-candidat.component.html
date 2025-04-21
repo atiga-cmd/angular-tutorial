@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="menu-bar">
+    <a [routerLink]="['/profil-admin', userId]">Mon Profil</a>
+    <a [routerLink]="['/admin-offre', userId]"routerLinkActive="active">Offres</a>
+    <a [routerLink]="['/voir-recruteur', userId]">Voir Recruteur</a>
+    <a [routerLink]="['/voir-candidat', userId]">Voir Candidat</a>
+    <a [routerLink]="['/moderer-offre', userId]">moderer-offres </a>
+    <a [routerLink]="'/deconnexion-admin'">🔑 Déconnexion </a>
+
+  </div>
+
+  <main class="content">
+    <h2>Profil du Candidat</h2>
+
+<section *ngIf="perso">
+  <h3>Informations Personnelles</h3>
+  <p><strong>Nom :</strong> {{ perso.nomCand }}</p>
+  <p><strong>Prénom :</strong> {{ perso.prenomCand }}</p>
+  <p><strong>Email :</strong> {{ perso.emailCand }}</p>
+  <p><strong>Date de naissance :</strong> {{ perso.dateNaiss }}</p>
+  <p><strong>Sexe :</strong> {{ perso.sexe }}</p>
+  <p><strong>État civil :</strong> {{ perso.etat_civil }}</p>
+  <p><strong>Ville :</strong> {{ perso.ville }}</p>
+  <p><strong>Code postal :</strong> {{ perso.codePostal }}</p>
+  <p><strong>Permis :</strong> {{ perso.permis }}</p>
+  <p><strong>Téléphone :</strong> {{ perso.numTel }}</p>
+  <img *ngIf="perso.url_photo" [src]="perso.url_photo" alt="Photo de profil" width="100" />
+</section>
+
+<hr>
+
+<section *ngIf="pro">
+  <h3>Informations Professionnelles</h3>
+  <p><strong>Niveau d'éducation :</strong> {{ pro.niveauEducation }}</p>
+  <p><strong>Diplôme obtenu :</strong> {{ pro.diplomeObtenu }}</p>
+  <p><strong>Établissement :</strong> {{ pro.etablissement }}</p>
+  <p><strong>Expérience :</strong> {{ pro.niveauExperience }}</p>
+  <p><strong>Statut actuel :</strong> {{ pro.statutActuel }}</p>
+  <p><strong>Compétences :</strong> {{ pro.competences }}</p>
+  <p><strong>Langues :</strong> {{ pro.langues }}</p>
+  <p><strong>Poste désiré :</strong> {{ pro.posteDesire }}</p>
+  <p><strong>Lieu de travail souhaité :</strong> {{ pro.lieuTravailSouhaite }}</p>
+  <a *ngIf="pro.url_cv" [href]="pro.url_cv" target="_blank">Voir CV</a>
+</section>
+<button (click)="supprimerCandidat()" style="margin-top: 20px; background-color: red; color: white; padding: 10px; border: none;">
+    Supprimer ce candidat
+  </button>
+  </main>
+  </div>

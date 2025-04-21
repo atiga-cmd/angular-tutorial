@@ -89,3 +89,90 @@ body {
     background-color: #01579b;
   }
   
+
+  
+  /* Contenu principal */
+  .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #006064;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Cartes d’offres */
+  .offre-card {
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .offre-card h3 {
+    margin-top: 0;
+    color: #00796b;
+  }
+  
+  .offre-card p {
+    margin: 5px 0;
+  }
+  
+  /* Boutons */
+  .btn-modifier {
+    background-color: #29b6f6;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-modifier:hover {
+    background-color: #0288d1;
+  }
+  
+  .offre-card button {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .offre-card button:hover {
+    background-color: #b71c1c;
+  }
+  
+  /* Message si aucune offre */
+  p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .menu-bar {
+      flex-direction: column;
+    }
+  
+    .container {
+      margin: 20px;
+    }
+  }
+  

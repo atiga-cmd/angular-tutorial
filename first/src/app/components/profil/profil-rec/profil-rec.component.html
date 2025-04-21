@@ -1,11 +1,3 @@
-<!---
-@if (recruteur) {
-  
-  <h2>Bienvenue, {{ recruteur.nomRec }} {{ recruteur.prenomRec }}</h2>
-  <p>Email: {{ recruteur.emailRec }}</p>
-  <a routerLink="/ajout-offre">Offres d'emploi</a>
-
-}   -->
 
 
 <div class="container">
@@ -18,7 +10,8 @@
       <a [routerLink]="'/gerer-offre'">Gérer mes offres</a>
       <a [routerLink]="'/les-candidatures'">Candidatures reçues</a>
       <a [routerLink]="'/recherche-candidats'">Rechercher candidat</a>
-      
+      <a routerLink="/deconnexion-rec">🔑 Déconnexion</a>
+
   </div>
 
   <main class="content">
